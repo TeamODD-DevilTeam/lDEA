@@ -154,7 +154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c641287e3d034207a3c9c4ee21a962b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletTagName: Bullet
 --- !u!61 &94905312
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -343,7 +342,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &252730159
 BoxCollider2D:
@@ -681,7 +680,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &728081217
 BoxCollider2D:

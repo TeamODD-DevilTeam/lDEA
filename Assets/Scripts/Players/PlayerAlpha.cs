@@ -11,9 +11,11 @@ public class PlayerAlpha : Player {
         // 반지름이 1.5인 원 범위 내의 충돌 가능한 오브젝트를 확인합니다.
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 1.5f);
         foreach (Collider2D collider in colliders) {
-            if (collider != null && collider.tag == "Block") {
+            if (collider != null && collider.tag == blockTagName) {
                 Destroy(collider.gameObject); // 만약 파괴 가능한 장애물인 경우 파괴합니다.
             }
         }
     }
+
+    // interface
 }

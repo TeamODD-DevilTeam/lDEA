@@ -21,5 +21,10 @@ public class Bullet : MonoBehaviour {
 
     // 만약 어딘가에 닿았을 경우 오브젝트를 파괴합니다. 단, 오브젝트가 어딘가에 닿지 않았을 경우 파괴되지 않습니다.
     void OnCollisionEnter2D(Collision2D collision) { Destroy(gameObject); }
-    void OnTriggerEnter2D(Collider2D collision) { Destroy(gameObject); }
+    void OnTriggerEnter2D(Collider2D collision) { 
+        if (collision.gameObject.TryGetComponent(out ISwitch component)) {
+            component.Action();
+        }
+        Destroy(gameObject); 
+    }
 }
