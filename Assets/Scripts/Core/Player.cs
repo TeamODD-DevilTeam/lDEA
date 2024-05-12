@@ -12,15 +12,18 @@ public class Player : MonoBehaviour
     [Tooltip("이 오브젝트의 Rigidbody2D 컴포넌트를 참조합니다.")]
     [SerializeField] Rigidbody2D rigid;
     [Tooltip("점프 가능 여부를 확인하기 위한 바닥 오브젝트의 태그 이름입니다.")]
-    [SerializeField] string groundTagName;
+    [SerializeField] string groundTagName = "Ground";
     [Tooltip("플레이어의 움직임 속도를 지정합니다.")]
     [SerializeField] float moveSpeed = 10.0f;
     [Tooltip("플레이어의 점프 높이를 지정합니다.")]
     [SerializeField] float jumpPower = 20.0f;
+    [Tooltip("플레이어의 방향을 지정합니다. 참일 경우 왼쪽을 바라봅니다.")]
+    [SerializeField] protected bool isLeft = false;
 
     // 내부적으로 사용하는 변수
     Vector2 moveDirection; // 플레이어의 이동을 관리합니다.
     bool isGrounded = false; // 플레이어가 현재 바닥과 닿은 상태인지 확인합니다.
+    protected GameObject collisionBlock; // 플레이어 알파와 충돌한 파괴 가능한 블럭을 지정합니다.
 
     // 프레임 관련 이슈가 생길 수 있어 FixedUpdate를 사용했으나, 만약 여기서 프레임 끊김 현상이 생긴다면 Update 함수를 사용해야 합니다.
     // 매 프레임마다 Update - FixedUpdate가 순서대로 호출되는 것으로 알고 있습니다. (찾아봐야 함)
@@ -38,7 +41,11 @@ public class Player : MonoBehaviour
     // 키보드 입력을 받음 (좌우 이동)
     void OnMove(InputValue value) {
         Vector2 input = value.Get<Vector2>();
-        if (input != null) moveDirection.x = input.x;
+        if (input != null) {
+            moveDirection.x = input.x;
+            if (moveDirection.x > 0) isLeft = false;
+            else if (moveDirection.x < 0) isLeft = true;
+        }
     }
 
     // 키보드 입력을 받음 (점프 토글)
@@ -48,9 +55,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    // 바닥과의 충돌 감지로 점프 가능한 상태인지 확인
     void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.tag == groundTagName) {
+        // 바닥과의 충돌 감지로 점프 가능한 상태인지 확인
+        if (collision.gameObject.tag == groundTagName || collision.gameObject.tag == "Player") {
             moveDirection.y = 0;
             isGrounded = true;
         }

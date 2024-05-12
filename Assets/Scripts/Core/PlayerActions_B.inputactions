@@ -1,5 +1,5 @@
 {
-    "name": "PlayerActions",
+    "name": "PlayerActions_B",
     "maps": [
         {
             "name": "PlayerB",
@@ -15,15 +15,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Attack",
-                    "type": "Button",
-                    "id": "f76eb9a5-c5f8-48b3-a70b-e07980c3fbe6",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Jump",
                     "type": "Value",
                     "id": "bbcba8d4-3098-4929-8135-b1b9ae8829bc",
@@ -31,20 +22,18 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Attack",
+                    "type": "Button",
+                    "id": "f76eb9a5-c5f8-48b3-a70b-e07980c3fbe6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "f3232118-ef31-4e40-98a1-99003f9b45aa",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "PC",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "LR",
                     "id": "f38cee8a-da8d-4b97-aae0-4d163bc741cf",
@@ -86,6 +75,17 @@
                     "processors": "",
                     "groups": "PC",
                     "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f3232118-ef31-4e40-98a1-99003f9b45aa",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
