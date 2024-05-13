@@ -7,6 +7,8 @@ public class PlayerBeta : Player {
     [SerializeField] GameObject bulletPrefab;
     [Tooltip("생성할 발사체의 초기 위치입니다.")]
     [SerializeField] GameObject spawnPoint;
+
+    // 클래스 내부에서 사용하는 변수
     Vector3 pos; // 발사체가 생성될 위치를 지정하는 변수
     
     // 플레이어가 공격 키를 눌렀을 때를 감지합니다. 알파와 베타의 공격은 서로 다른 공격이기에 Player 클래스를 상속받는 자식 클래스에 작성하였습니다.
@@ -23,6 +25,11 @@ public class PlayerBeta : Player {
 
         // 오브젝트를 생성합니다.
         GameObject obj = Instantiate(bulletPrefab, spawnPoint.transform.position, Quaternion.identity);
-        obj.GetComponent<Bullet>().SetDirection(isLeft); // 오브젝트가 플레이어가 바라보는 방향으로 날아갑니다
+        Bullet bullet = obj.GetComponent<Bullet>();
+        bullet.SetDirection(isLeft); // 오브젝트가 플레이어가 바라보는 방향으로 날아갑니다.
+        bullet.SetElementType(elementType); // 오브젝트가 플레이어의 원소 속성으로 지정되어 날아갑니다.
     }
+
+    public void SetElementType(ElementType elementType) { this.elementType = elementType; }
+    public ElementType GetElementType() { return elementType; }
 }

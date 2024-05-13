@@ -23,7 +23,9 @@ public class Player : MonoBehaviour
     // 내부적으로 사용하는 변수
     Vector2 moveDirection; // 플레이어의 이동을 관리합니다.
     bool isGrounded = false; // 플레이어가 현재 바닥과 닿은 상태인지 확인합니다.
+    // 자식 클래스에서도 사용하는 변수 (알파, 베타가 공통적으로 사용하는 변수)
     protected GameObject collisionBlock; // 플레이어 알파와 충돌한 파괴 가능한 블럭을 지정합니다.
+    protected ElementType elementType = ElementType.None; // 플레이어의 공격 속성을 지정하는 변수입니다.
 
     // 프레임 관련 이슈가 생길 수 있어 FixedUpdate를 사용했으나, 만약 여기서 프레임 끊김 현상이 생긴다면 Update 함수를 사용해야 합니다.
     // 매 프레임마다 Update - FixedUpdate가 순서대로 호출되는 것으로 알고 있습니다. (찾아봐야 함)
