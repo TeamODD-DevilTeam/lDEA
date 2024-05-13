@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     [Tooltip("플레이어의 움직임 속도를 지정합니다.")]
     [SerializeField] float moveSpeed = 10.0f;
     [Tooltip("플레이어의 점프 높이를 지정합니다.")]
-    [SerializeField] float jumpPower = 20.0f;
+    [SerializeField] float jumpPower = 15.0f;
     [Tooltip("플레이어의 방향을 지정합니다. 참일 경우 왼쪽을 바라봅니다.")]
     [SerializeField] protected bool isLeft = false;
 
@@ -55,6 +55,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    // 점프가 가능한 상태인지 확인하기 위한 코드입니다.
     void OnCollisionEnter2D(Collision2D collision) {
         // 바닥과의 충돌 감지로 점프 가능한 상태인지 확인
         if (collision.gameObject.tag == groundTagName || collision.gameObject.tag == "Player") {
@@ -63,9 +64,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    // 스위치 등의 오브젝트와 충돌했을 때 감지하기 위한 코드입니다.
     void OnTriggerEnter2D(Collider2D collision) {
+        // 스위치와 충돌했는지 확인합니다.
         if (collision.gameObject.TryGetComponent(out ISwitch component)) {
-            component.Action();
+            component.Action(); // 스위치와 충돌한 경우 스위치 객체의 Action() 함수를 호출합니다.
         }
     }
 }

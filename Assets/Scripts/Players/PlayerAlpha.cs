@@ -8,8 +8,8 @@ public class PlayerAlpha : Player {
 
     // 플레이어가 공격 키를 눌렀을 때를 감지합니다. 알파와 베타의 공격은 서로 다른 공격이기에 Player 클래스를 상속받는 자식 클래스에 작성하였습니다.
     void OnAttack() {
-        // 반지름이 1.5인 원 범위 내의 충돌 가능한 오브젝트를 확인합니다.
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 1.5f);
+        // 가로가 2, 세로가 0인 사각형 범위 내의 충돌 가능한 오브젝트를 확인합니다.
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, new Vector2(2, 0), 1.5f);
         foreach (Collider2D collider in colliders) {
             if (collider != null && collider.tag == blockTagName) {
                 Destroy(collider.gameObject); // 만약 파괴 가능한 장애물인 경우 파괴합니다.
