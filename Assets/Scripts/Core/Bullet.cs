@@ -14,8 +14,7 @@ public class Bullet : MonoBehaviour {
     // 발사체가 날아갈 방향을 지정하는 함수입니다. 외부에서 접근할 수 있게해 오브젝트가 생성될 때 정해질 수 있도록 합니다.
     public void SetDirection(bool isLeft) {
         // 좌측일 땐 X좌표가 감소, 우측일 땐 X좌표값이 증가해야 하므로 아래와 같이 지정하였습니다.
-        if (isLeft) moveDirection = new Vector3(-1, 0, 0);
-        else moveDirection = new Vector3(1, 0, 0);
+        moveDirection = isLeft ? new Vector3(-1, 0, 0) : new Vector3(1, 0, 0);
     }
 
     // 발사체가 날아가기 위해 매 프레임 공백 시마다 위치를 변경합니다.
