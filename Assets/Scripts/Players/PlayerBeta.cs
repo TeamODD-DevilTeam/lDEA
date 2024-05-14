@@ -16,10 +16,10 @@ public class PlayerBeta : Player {
         // 좌 또는 우방향을 보고 있음에 따라 발사체가 생성되는 위치와 방향을 지정합니다.
         pos = transform.position; // 현재 위치를 먼저 가져옵니다.
         if (isLeft) {
-            pos.x = transform.position.x - 0.7f; // 좌측을 보고 있는 경우 현위치의 왼쪽으로 지정
+            pos.x = transform.position.x - 0.55f; // 좌측을 보고 있는 경우 현위치의 왼쪽으로 지정
         }
         else {
-            pos.x = transform.position.x + 0.7f; // 우측을 보고 있는 경우 현위치의 오른쪽으로 지정
+            pos.x = transform.position.x + 0.55f; // 우측을 보고 있는 경우 현위치의 오른쪽으로 지정
         }
         spawnPoint.transform.position = pos; // 오브젝트의 위치를 위에서 지정된 값으로 지정합니다.
 
