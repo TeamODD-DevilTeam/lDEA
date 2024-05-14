@@ -11,7 +11,6 @@ public class GroundCheck : MonoBehaviour {
 
     // 점프가 가능한 상태인지 확인하기 위한 코드입니다.
     void OnCollisionEnter2D(Collision2D collision) {
-        Debug.Log(collision.gameObject.tag);
         // 바닥과의 충돌 감지로 점프 가능한 상태인지 확인
         if (collision.gameObject.tag == groundTagName || collision.gameObject.tag == "Player") {
             player.SetGrounded(true); // 전달받은 Player 객체의 isGrounded값을 true로 설정합니다.
