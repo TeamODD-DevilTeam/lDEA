@@ -855,7 +855,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1133431324}
         m_TargetAssemblyTypeName: Start, Assembly-CSharp
-        m_MethodName: SelectStart
+        m_MethodName: start
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
