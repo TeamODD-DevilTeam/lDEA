@@ -1,3 +1,3 @@
 public interface ISwitch {
-    void Action();
+    public void Action();
 }
