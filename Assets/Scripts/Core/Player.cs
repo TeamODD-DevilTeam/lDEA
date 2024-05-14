@@ -11,8 +11,6 @@ public class Player : MonoBehaviour
     // 하이어라키 창에서 지정해야하는 변수 - 필수로 지정해야 함
     [Tooltip("이 오브젝트의 Rigidbody2D 컴포넌트를 참조합니다.")]
     [SerializeField] Rigidbody2D rigid;
-    [Tooltip("점프 가능 여부를 확인하기 위한 바닥 오브젝트의 태그 이름입니다.")]
-    [SerializeField] string groundTagName = "Ground";
     [Tooltip("플레이어의 움직임 속도를 지정합니다.")]
     [SerializeField] float moveSpeed = 10.0f;
     [Tooltip("플레이어의 점프 높이를 지정합니다.")]
@@ -42,11 +40,12 @@ public class Player : MonoBehaviour
 
     // 키보드 입력을 받음 (좌우 이동)
     void OnMove(InputValue value) {
-        Vector2 input = value.Get<Vector2>();
-        if (input != null) {
-            moveDirection.x = input.x;
-            if (moveDirection.x > 0) isLeft = false;
-            else if (moveDirection.x < 0) isLeft = true;
+        Vector2 input = value.Get<Vector2>(); // 입력을 받아옵니다.
+        if (input != null) { // 입력이 잘못되었을 수 있으므로, input을 확인합니다.
+            moveDirection.x = input.x; // 움직일 X좌표를 입력받은 값으로 지정합니다. (SystemInput)
+            if (moveDirection.x > 0) isLeft = false; // 만약 0보다 크면 우측으로 이동합니다.
+            else if (moveDirection.x < 0) isLeft = true; // 0보다 작은 경우 좌측으로 이동합니다.
+            // 0인 경우 이전 상태(보고있는 방향)를 저장하기 위해 isLeft 변수를 조작하지 않습니다.
         }
     }
 
@@ -57,20 +56,18 @@ public class Player : MonoBehaviour
         }
     }
 
-    // 점프가 가능한 상태인지 확인하기 위한 코드입니다.
-    void OnCollisionEnter2D(Collision2D collision) {
-        // 바닥과의 충돌 감지로 점프 가능한 상태인지 확인
-        if (collision.gameObject.tag == groundTagName || collision.gameObject.tag == "Player") {
-            moveDirection.y = 0;
-            isGrounded = true;
-        }
-    }
-
     // 스위치 등의 오브젝트와 충돌했을 때 감지하기 위한 코드입니다.
     void OnTriggerEnter2D(Collider2D collision) {
-        // 스위치와 충돌했는지 확인합니다.
+        // 스위치와 충돌했는지 확인합니다. 스위치 오브젝트가 Switch 클래스가 상속받는 ISwitch를 소유하고 있는지 확인합니다.
         if (collision.gameObject.TryGetComponent(out ISwitch component)) {
             component.Action(); // 스위치와 충돌한 경우 스위치 객체의 Action() 함수를 호출합니다.
         }
+    }
+
+    // GroundCheck 클래스에서 호출할 바닥 상태 확인 함수입니다.
+    public void SetGrounded(bool isGrounded, float moveDirectionY = 0) {
+        // 전달받은 값으로 moveDirectionY값과 isGrounded값을 설정합니다. moveDirectionY값의 기본값은 0입니다.
+        moveDirection.y = moveDirectionY;
+        this.isGrounded = isGrounded;
     }
 }
