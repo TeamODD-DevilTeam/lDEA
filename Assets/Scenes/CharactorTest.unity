@@ -565,7 +565,10 @@ MonoBehaviour:
   alpha: {fileID: 303270438}
   beta: {fileID: 1227602623}
   smoothTime: 0.2
-  isMove: 0
+  movableArea:
+    min: {x: -100, y: -100}
+    max: {x: 100, y: 100}
+  isMove: 1
 --- !u!1 &1208519154
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,7 +582,7 @@ GameObject:
   - component: {fileID: 1208519156}
   - component: {fileID: 1208519159}
   - component: {fileID: 1208519160}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DestoryableBlock
   m_TagString: Block
   m_Icon: {fileID: 0}
