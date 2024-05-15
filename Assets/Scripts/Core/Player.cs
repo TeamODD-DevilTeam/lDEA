@@ -20,7 +20,8 @@ public class Player : MonoBehaviour
 
     // 내부적으로 사용하는 변수
     Vector2 moveDirection; // 플레이어의 이동을 관리합니다.
-    bool isGrounded = false; // 플레이어가 현재 바닥과 닿은 상태인지 확인합니다.
+    [SerializeField] bool isGrounded = false; // 플레이어가 현재 바닥과 닿은 상태인지 확인합니다.
+    [SerializeField] bool isJumping = false; // 플레이어가 점프 중인 상태인지 확인합니다.
     // 자식 클래스에서도 사용하는 변수 (알파, 베타가 공통적으로 사용하는 변수)
     protected GameObject collisionBlock; // 플레이어 알파와 충돌한 파괴 가능한 블럭을 지정합니다.
     protected ElementType elementType = ElementType.None; // 플레이어의 공격 속성을 지정하는 변수입니다.
@@ -29,18 +30,22 @@ public class Player : MonoBehaviour
     // 매 프레임마다 Update - FixedUpdate가 순서대로 호출되는 것으로 알고 있습니다. (찾아봐야 함)
     void FixedUpdate() {
         // 플레이어를 좌우로 이동시킵니다. 만약 점프 중이라면 동시에 점프할 수 있게끔 합니다.
-        if (moveDirection.x != 0) 
-            rigid.velocity = new Vector2(moveDirection.x * moveSpeed, rigid.velocity.y);
+        if (moveDirection.x != 0) {
+            rigid.AddForce(new Vector2((moveDirection.x * moveSpeed - rigid.velocity.x) * moveSpeed, 0f));
+        } else {
+            rigid.AddForce(new Vector2(-rigid.velocity.x * moveSpeed, 0f));
+            rigid.velocity = new Vector2(rigid.velocity.x, rigid.velocity.y);
+        }
         // 플레이어가 바닥 위에 있다면 점프를 합니다. 만약 이동 중이라면 동시에 움직일 수 있게끔 합니다.
-        if (moveDirection.y != 0 && isGrounded) {
-            rigid.velocity = new Vector2(rigid.velocity.x, moveDirection.y * jumpPower);
+        if (isJumping && isGrounded) {
+            rigid.velocity = new Vector2(rigid.velocity.x, jumpPower);
             isGrounded = false; // 이 코드가 한 번만 실행되게끔 합니다.
         }
     }
 
     // 키보드 입력을 받음 (좌우 이동)
-    void OnMove(InputValue value) {
-        Vector2 input = value.Get<Vector2>(); // 입력을 받아옵니다.
+    void OnMove(InputAction.CallbackContext value) {
+        Vector2 input = value.ReadValue<Vector2>(); // 입력을 받아옵니다.
         if (input != null) { // 입력이 잘못되었을 수 있으므로, input을 확인합니다.
             moveDirection.x = input.x; // 움직일 X좌표를 입력받은 값으로 지정합니다. (SystemInput)
             if (moveDirection.x > 0) isLeft = false; // 만약 0보다 크면 우측으로 이동합니다.
@@ -50,10 +55,9 @@ public class Player : MonoBehaviour
     }
 
     // 키보드 입력을 받음 (점프 토글)
-    void OnJump() {
-        if (isGrounded) {
-            moveDirection.y = 1;
-        }
+    void OnJump(InputAction.CallbackContext value) {
+        if (value.started) isJumping = true;
+        else if (value.canceled) isJumping = false;
     }
 
     // 스위치 등의 오브젝트와 충돌했을 때 감지하기 위한 코드입니다.
@@ -65,9 +69,8 @@ public class Player : MonoBehaviour
     }
 
     // GroundCheck 클래스에서 호출할 바닥 상태 확인 함수입니다.
-    public void SetGrounded(bool isGrounded, float moveDirectionY = 0) {
-        // 전달받은 값으로 moveDirectionY값과 isGrounded값을 설정합니다. moveDirectionY값의 기본값은 0입니다.
-        moveDirection.y = moveDirectionY;
+    public void SetGrounded(bool isGrounded) {
+        // 전달받은 값으로 moveDirectionY값과 isGrounded값을 설정합니다.
         this.isGrounded = isGrounded;
     }
 

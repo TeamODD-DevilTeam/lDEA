@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
     [Tooltip("발사체의 속도를 지정합니다.")]
-    [SerializeField] float speed = 10;
+    [SerializeField] float speed = 15.0f;
     Vector3 moveDirection; // 발사체가 움직일 방향을 저장합니다.
     ElementType elementType = ElementType.None; // 발사체의 속성을 저장합니다.
 
