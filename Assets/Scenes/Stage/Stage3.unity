@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 42962766}
   - component: {fileID: 42962765}
   - component: {fileID: 42962767}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (3)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 196972307}
   - component: {fileID: 196972306}
   - component: {fileID: 196972308}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,7 +568,7 @@ GameObject:
   - component: {fileID: 219352080}
   - component: {fileID: 219352079}
   - component: {fileID: 219352081}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gate 3
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -698,7 +698,7 @@ GameObject:
   - component: {fileID: 262635830}
   - component: {fileID: 262635829}
   - component: {fileID: 262635831}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gate 2
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -960,7 +960,7 @@ GameObject:
   - component: {fileID: 358693401}
   - component: {fileID: 358693400}
   - component: {fileID: 358693402}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1423,6 +1423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c641287e3d034207a3c9c4ee21a962b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Gate: {fileID: 0}
 --- !u!1 &460328373
 GameObject:
   m_ObjectHideFlags: 0
@@ -1795,7 +1796,7 @@ GameObject:
   m_Component:
   - component: {fileID: 717781368}
   - component: {fileID: 717781369}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor 2-2
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1880,7 +1881,7 @@ GameObject:
   - component: {fileID: 915327966}
   - component: {fileID: 915327965}
   - component: {fileID: 915327967}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2009,7 +2010,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1003470219}
   - component: {fileID: 1003470220}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor 2.5
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2294,6 +2295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c641287e3d034207a3c9c4ee21a962b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Gate: {fileID: 0}
 --- !u!1001 &1241929484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2308,11 +2310,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5191039870341570659, guid: fb3fd39975e5348229a2f79e30817043, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.03
+      value: 0.83
       objectReference: {fileID: 0}
     - target: {fileID: 5191039870341570659, guid: fb3fd39975e5348229a2f79e30817043, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.13
+      value: 3.66
       objectReference: {fileID: 0}
     - target: {fileID: 5191039870341570659, guid: fb3fd39975e5348229a2f79e30817043, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2454,7 +2456,7 @@ GameObject:
   - component: {fileID: 1339898576}
   - component: {fileID: 1339898577}
   - component: {fileID: 1339898578}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (5)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2583,11 +2585,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3851351556869504070, guid: 25ae26d9741e242c6a8760a3192e0b33, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.58
+      value: -0.77
       objectReference: {fileID: 0}
     - target: {fileID: 3851351556869504070, guid: 25ae26d9741e242c6a8760a3192e0b33, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.99
+      value: 3.64
       objectReference: {fileID: 0}
     - target: {fileID: 3851351556869504070, guid: 25ae26d9741e242c6a8760a3192e0b33, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2641,7 +2643,7 @@ GameObject:
   - component: {fileID: 1451839320}
   - component: {fileID: 1451839319}
   - component: {fileID: 1451839321}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gate 1
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2919,7 +2921,7 @@ GameObject:
   - component: {fileID: 1597090445}
   - component: {fileID: 1597090444}
   - component: {fileID: 1597090443}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (3)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -3242,7 +3244,7 @@ GameObject:
   - component: {fileID: 1736632628}
   - component: {fileID: 1736632627}
   - component: {fileID: 1736632626}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor 2-1
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -3355,7 +3357,7 @@ Transform:
   m_GameObject: {fileID: 1736632625}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.7895, y: 1.5, z: 0.10822437}
+  m_LocalPosition: {x: -6.7895007, y: 1.5, z: 0.10822437}
   m_LocalScale: {x: 6.888944, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3372,7 +3374,7 @@ GameObject:
   - component: {fileID: 1784192972}
   - component: {fileID: 1784192973}
   - component: {fileID: 1784192974}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor 2-3
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -3502,7 +3504,7 @@ GameObject:
   - component: {fileID: 1844681922}
   - component: {fileID: 1844681921}
   - component: {fileID: 1844681920}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor 1
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -3632,7 +3634,7 @@ GameObject:
   - component: {fileID: 1851679325}
   - component: {fileID: 1851679324}
   - component: {fileID: 1851679326}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3762,7 +3764,7 @@ GameObject:
   - component: {fileID: 1869174517}
   - component: {fileID: 1869174516}
   - component: {fileID: 1869174518}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gate 4
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -3892,7 +3894,7 @@ GameObject:
   - component: {fileID: 1878114025}
   - component: {fileID: 1878114024}
   - component: {fileID: 1878114026}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor 3
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -4022,7 +4024,7 @@ GameObject:
   - component: {fileID: 2026254573}
   - component: {fileID: 2026254574}
   - component: {fileID: 2026254575}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

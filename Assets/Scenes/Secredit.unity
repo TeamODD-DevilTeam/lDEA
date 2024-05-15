@@ -1024,7 +1024,7 @@ GameObject:
   - component: {fileID: 606549226}
   - component: {fileID: 606549225}
   m_Layer: 5
-  m_Name: Graphics
+  m_Name: Head2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1386,7 +1386,7 @@ GameObject:
   - component: {fileID: 683112851}
   - component: {fileID: 683112850}
   m_Layer: 5
-  m_Name: Comment
+  m_Name: Comment4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1694,7 +1694,7 @@ GameObject:
   - component: {fileID: 974720392}
   - component: {fileID: 974720391}
   m_Layer: 5
-  m_Name: Comment
+  m_Name: Comment1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1828,7 +1828,7 @@ GameObject:
   - component: {fileID: 1074517358}
   - component: {fileID: 1074517357}
   m_Layer: 5
-  m_Name: Comment
+  m_Name: Comment3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1874,7 +1874,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\uB9C8\uB530\uB044... \uCF54\uB4DC\uAC00 \uC5C9\uB9DD\uC9C4\uCC3D\uC774\uB124?
-    \uADFC\uB370 \uC774\uAC70 \uB0B4\uAC00 \uD588"
+    \uADFC\uB370 \uB0B4\uAC00 \uD55C\uAC70\uB124?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 73cfdd6e53cde4cf08b0d09d68f1eeb3, type: 2}
   m_sharedMaterial: {fileID: 2328079915625243252, guid: 73cfdd6e53cde4cf08b0d09d68f1eeb3, type: 2}
@@ -2540,7 +2540,7 @@ GameObject:
   - component: {fileID: 1822859399}
   - component: {fileID: 1822859398}
   m_Layer: 5
-  m_Name: Programming2
+  m_Name: Head4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2720,7 +2720,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Credit\n<size=64>\uC0AC\uC545\uD55C \uD300</size>"
+  m_text: "Credit\n<size=64>\uD300 \uD300</size>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 38cc3ad8e4aec40dc82b0859b43814ad, type: 2}
   m_sharedMaterial: {fileID: -3250250418820339055, guid: 38cc3ad8e4aec40dc82b0859b43814ad, type: 2}
@@ -2809,7 +2809,7 @@ GameObject:
   - component: {fileID: 1848936186}
   - component: {fileID: 1848936185}
   m_Layer: 5
-  m_Name: Programming1
+  m_Name: Head3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2984,7 +2984,7 @@ GameObject:
   - component: {fileID: 1892693778}
   - component: {fileID: 1892693777}
   m_Layer: 5
-  m_Name: PD
+  m_Name: Head1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3293,7 +3293,7 @@ GameObject:
   - component: {fileID: 2111572315}
   - component: {fileID: 2111572314}
   m_Layer: 5
-  m_Name: Comment
+  m_Name: Comment2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
