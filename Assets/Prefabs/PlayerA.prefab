@@ -350,5 +350,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigid: {fileID: 5566453497326199540}
   moveSpeed: 10
-  jumpPower: 15
+  jumpPower: 16
   isLeft: 0
