@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 278162089}
   - component: {fileID: 278162091}
   - component: {fileID: 278162090}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 380738594}
   - component: {fileID: 380738597}
   - component: {fileID: 380738596}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (2)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ Transform:
   m_GameObject: {fileID: 380738593}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.78, y: 1.39, z: 0}
+  m_LocalPosition: {x: 2.78, y: 1.3899999, z: 0}
   m_LocalScale: {x: 12.721225, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 407057384}
   - component: {fileID: 407057383}
   - component: {fileID: 407057382}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall 3
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -610,7 +610,7 @@ GameObject:
   - component: {fileID: 903524587}
   - component: {fileID: 903524590}
   - component: {fileID: 903524589}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -678,7 +678,7 @@ Transform:
   m_GameObject: {fileID: 903524586}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.14, y: -0.78, z: 0}
+  m_LocalPosition: {x: -6.14, y: -0.77999973, z: 0}
   m_LocalScale: {x: 6.7306647, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -901,7 +901,7 @@ GameObject:
   - component: {fileID: 1324835520}
   - component: {fileID: 1324835519}
   - component: {fileID: 1324835518}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gate
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1041,7 +1041,7 @@ Transform:
   m_GameObject: {fileID: 1324835517}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.2394, y: 1.39, z: 0}
+  m_LocalPosition: {x: -6.2394, y: 1.3899999, z: 0}
   m_LocalScale: {x: 5.3176975, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1146,7 +1146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c641287e3d034207a3c9c4ee21a962b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gate: {fileID: 0}
+  Gate: {fileID: 1324835521}
 --- !u!61 &1367263216
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1552,7 +1552,7 @@ GameObject:
   - component: {fileID: 1907794947}
   - component: {fileID: 1907794950}
   - component: {fileID: 1907794949}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1709,7 +1709,7 @@ GameObject:
   - component: {fileID: 1953808696}
   - component: {fileID: 1953808695}
   - component: {fileID: 1953808694}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor
   m_TagString: Ground
   m_Icon: {fileID: 0}
