@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2873619371367051203}
   - component: {fileID: 7950355027435192241}
   - component: {fileID: 9142489398382325763}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: PlayerB
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigid: {fileID: 2873619371367051203}
   moveSpeed: 10
-  jumpPower: 15
+  jumpPower: 16
   isLeft: 0
   bulletPrefab: {fileID: 8824931198063429515, guid: e62202d39e36747d8b4b26e3ef05e82f, type: 3}
   spawnPoint: {fileID: 9035885013590409185}
@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 5852169793837837446}
   - component: {fileID: 2305530301372218022}
   - component: {fileID: 192961861597424716}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,6 +352,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &9035885013590409185
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,7 +364,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5288028595876422330}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

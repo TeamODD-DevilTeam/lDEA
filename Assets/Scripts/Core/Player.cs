@@ -20,8 +20,8 @@ public class Player : MonoBehaviour
 
     // 내부적으로 사용하는 변수
     Vector2 moveDirection; // 플레이어의 이동을 관리합니다.
-    [SerializeField] bool isGrounded = false; // 플레이어가 현재 바닥과 닿은 상태인지 확인합니다.
-    [SerializeField] bool isJumping = false; // 플레이어가 점프 중인 상태인지 확인합니다.
+    bool isGrounded = false; // 플레이어가 현재 바닥과 닿은 상태인지 확인합니다.
+    bool isJumping = false; // 플레이어가 점프 중인 상태인지 확인합니다.
     // 자식 클래스에서도 사용하는 변수 (알파, 베타가 공통적으로 사용하는 변수)
     protected GameObject collisionBlock; // 플레이어 알파와 충돌한 파괴 가능한 블럭을 지정합니다.
     protected ElementType elementType = ElementType.None; // 플레이어의 공격 속성을 지정하는 변수입니다.
@@ -32,15 +32,15 @@ public class Player : MonoBehaviour
         // 플레이어를 좌우로 이동시킵니다. 만약 점프 중이라면 동시에 점프할 수 있게끔 합니다.
         if (moveDirection.x != 0) {
             rigid.AddForce(new Vector2((moveDirection.x * moveSpeed - rigid.velocity.x) * moveSpeed, 0f));
-        } else {
+        } else if (isGrounded) {
             rigid.AddForce(new Vector2(-rigid.velocity.x * moveSpeed, 0f));
-            rigid.velocity = new Vector2(rigid.velocity.x, rigid.velocity.y);
         }
         // 플레이어가 바닥 위에 있다면 점프를 합니다. 만약 이동 중이라면 동시에 움직일 수 있게끔 합니다.
         if (isJumping && isGrounded) {
             rigid.velocity = new Vector2(rigid.velocity.x, jumpPower);
             isGrounded = false; // 이 코드가 한 번만 실행되게끔 합니다.
         }
+        rigid.velocity = new Vector2(rigid.velocity.x, rigid.velocity.y);
     }
 
     // 키보드 입력을 받음 (좌우 이동)

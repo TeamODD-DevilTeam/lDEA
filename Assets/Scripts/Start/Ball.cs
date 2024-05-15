@@ -23,9 +23,11 @@ public class Ball : MonoBehaviour {
     }
 
     void MoveBall() {
-        if (isA && isB) rb.bodyType = RigidbodyType2D.Dynamic;
+        if (isA && isB) {
+            rb.constraints = RigidbodyConstraints2D.None;
+        }
         else {
-            rb.bodyType = RigidbodyType2D.Kinematic;
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX;
             rb.velocity = Vector2.zero;
         }
     }
