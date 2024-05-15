@@ -28,15 +28,10 @@ public class Bullet : MonoBehaviour {
         if (collision.gameObject.TryGetComponent(out ISwitch component)) {
             component.Action();
         } else if (collision.gameObject.TryGetComponent(out Block block)) {
-            // 조건문 코드가 너무 길어저 CanDestroy 함수로 파괴 가능한지 검사합니다.
-            if (CanDestroy(block)) Destroy(collision.gameObject);
+            // 속성이 불일 때 잔디 블럭이면 파괴합니다.
+            if (elementType == ElementType.Fire && block.IsBlockType(BlockType.Grass))
+                Destroy(collision.gameObject);
         }
         Destroy(gameObject);
-    }
-
-    bool CanDestroy(Block block) {
-        // 만약 발사체가 불속성일 때 잔디에 닿았을 경우 잔디를 파괴합니다.
-        // 만약 발사체 속성 상관 없이 Mark 타입의 장애물에 닿았을 경우 파괴합니다.
-        return (elementType == ElementType.Fire && block.IsBlockType(BlockType.Grass)) || block.IsBlockType(BlockType.Mark);
     }
 }
