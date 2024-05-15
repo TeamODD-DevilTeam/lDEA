@@ -256,6 +256,9 @@ MonoBehaviour:
   moveSpeed: 10
   jumpPower: 16
   isLeft: 0
+  platformLayer:
+    serializedVersion: 2
+    m_Bits: 256
   bulletPrefab: {fileID: 8824931198063429515, guid: e62202d39e36747d8b4b26e3ef05e82f, type: 3}
   spawnPoint: {fileID: 9035885013590409185}
 --- !u!1 &4976630229960721362
@@ -351,7 +354,7 @@ MonoBehaviour:
   player: {fileID: 9142489398382325763}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 320
   playerLayer:
     serializedVersion: 2
     m_Bits: 128

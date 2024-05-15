@@ -93,7 +93,7 @@ MonoBehaviour:
   player: {fileID: 6565572351841799313}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 320
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -352,3 +352,6 @@ MonoBehaviour:
   moveSpeed: 10
   jumpPower: 16
   isLeft: 0
+  platformLayer:
+    serializedVersion: 2
+    m_Bits: 256
