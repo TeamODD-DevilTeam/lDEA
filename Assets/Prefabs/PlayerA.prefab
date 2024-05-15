@@ -76,7 +76,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.0704391}
+  m_Size: {x: 0.95, y: 0.0704391}
   m_EdgeRadius: 0
 --- !u!114 &2585388971942240067
 MonoBehaviour:
@@ -91,7 +91,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 6565572351841799313}
-  groundTagName: Ground
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 320
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &4315904776430870259
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,7 +111,7 @@ GameObject:
   - component: {fileID: 5566453497326199540}
   - component: {fileID: 654491540266117056}
   - component: {fileID: 6565572351841799313}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerA
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -190,7 +195,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 4315904776430870259}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0865b348b739a4f31bd9ce02def55bd0, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -249,7 +254,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -266,7 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: d57147fcec2894632b97d7591f738ce4, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -277,7 +282,55 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6565572351841799313}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2aa83b1b-3435-4a80-a063-c5355a06a9b5
+    m_ActionName: PlayerA/Move[/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6565572351841799313}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2f7dc241-7503-4aa1-b448-84cccb44e760
+    m_ActionName: PlayerA/Jump[/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6565572351841799313}
+        m_TargetAssemblyTypeName: PlayerAlpha, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 973eb471-72cf-4bac-a883-839638d5a5c7
+    m_ActionName: PlayerA/Attack[/Keyboard/s]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerA
@@ -297,5 +350,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigid: {fileID: 5566453497326199540}
   moveSpeed: 10
-  jumpPower: 15
+  jumpPower: 16
   isLeft: 0
+  platformLayer:
+    serializedVersion: 2
+    m_Bits: 256
