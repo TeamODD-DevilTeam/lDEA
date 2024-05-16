@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -24,9 +25,10 @@ public class StartScene : MonoBehaviour {
         while (!async.isDone) {
             yield return null;
             if (async.progress >= 0.9f) {
+                async.allowSceneActivation = true;
+                DOTween.KillAll();
                 if (canvas.TryGetComponent(out Animator animator))
                     animator.SetTrigger("Finished");
-                async.allowSceneActivation = true;
                 yield break;
             }
         }
