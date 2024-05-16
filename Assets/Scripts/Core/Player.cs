@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,8 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     // 하이어라키 창에서 지정해야하는 변수 - 필수로 지정해야 함
+    [Tooltip("이 오브젝트의 Animator 컴포넌트를 참조합니다.")]
+    [SerializeField] Animator animator;
     [Tooltip("이 오브젝트의 Rigidbody2D 컴포넌트를 참조합니다.")]
     [SerializeField] Rigidbody2D rigid;
     [Tooltip("플레이어의 움직임 속도를 지정합니다.")]
@@ -52,19 +55,21 @@ public class Player : MonoBehaviour
     }
 
     // 키보드 입력을 받음 (좌우 이동)
-    void OnMove(InputAction.CallbackContext value) {
+    public void OnMove(InputAction.CallbackContext value) {
         Vector2 input = value.ReadValue<Vector2>(); // 입력을 받아옵니다.
         if (input != null) { // 입력이 잘못되었을 수 있으므로, input을 확인합니다.
+            if (animator != null) animator.SetBool("isMove", true);
             platformDistance = Vector3.zero; // 플랫폼 위에서 움직일 수 있도록 위치를 초기화합니다.
             moveDirection.x = input.x; // 움직일 X좌표를 입력받은 값으로 지정합니다. (SystemInput)
             if (moveDirection.x > 0) isLeft = false; // 만약 0보다 크면 우측으로 이동합니다.
             else if (moveDirection.x < 0) isLeft = true; // 0보다 작은 경우 좌측으로 이동합니다.
             // 0인 경우 이전 상태(보고있는 방향)를 저장하기 위해 isLeft 변수를 조작하지 않습니다.
         }
+        if (value.canceled && animator != null) animator.SetBool("isMove", false);
     }
 
     // 키보드 입력을 받음 (점프 토글)
-    void OnJump(InputAction.CallbackContext value) {
+    public void OnJump(InputAction.CallbackContext value) {
         if (value.started) isJumping = true;
         else if (value.canceled) isJumping = false;
     }
