@@ -58,14 +58,16 @@ public class Player : MonoBehaviour
     public void OnMove(InputAction.CallbackContext value) {
         Vector2 input = value.ReadValue<Vector2>(); // 입력을 받아옵니다.
         if (input != null) { // 입력이 잘못되었을 수 있으므로, input을 확인합니다.
-            if (animator != null) animator.SetBool("isMove", true);
+            if (animator != null) animator.SetBool("isMove", true); // 플레이어가 움직이는 애니메이션을 재생
             platformDistance = Vector3.zero; // 플랫폼 위에서 움직일 수 있도록 위치를 초기화합니다.
             moveDirection.x = input.x; // 움직일 X좌표를 입력받은 값으로 지정합니다. (SystemInput)
             if (moveDirection.x > 0) isLeft = false; // 만약 0보다 크면 우측으로 이동합니다.
             else if (moveDirection.x < 0) isLeft = true; // 0보다 작은 경우 좌측으로 이동합니다.
+            gameObject.GetComponent<SpriteRenderer>().flipX = isLeft; // 플레이어가 보는 방향을 설정합니다.
             // 0인 경우 이전 상태(보고있는 방향)를 저장하기 위해 isLeft 변수를 조작하지 않습니다.
         }
-        if (value.canceled && animator != null) animator.SetBool("isMove", false);
+        if (value.canceled && animator != null)
+            animator.SetBool("isMove", false); // 플레이어가 움직이는 애니메이션을 중단
     }
 
     // 키보드 입력을 받음 (점프 토글)
