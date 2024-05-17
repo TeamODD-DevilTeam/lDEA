@@ -8,9 +8,12 @@ public class Ball : MonoBehaviour {
     [SerializeField] GameObject playerA, playerB;
     [Tooltip("이 오브젝트의 Rigidbody2D입니다.")]
     [SerializeField] Rigidbody2D rb;
+    [Tooltip("이 오브젝트의 collider2D입니다")]
+    [SerializeField] Collider2D cd;
     bool isA = false;
     bool isB = false;
     public float maxSpeed = 1.0f;
+    [SerializeField] LayerMask defaultLayer, SpecialLayer;
     
     void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject == playerA) isA = true;
@@ -24,11 +27,10 @@ public class Ball : MonoBehaviour {
 
     void MoveBall() {
         if (isA && isB) {
-            rb.constraints = RigidbodyConstraints2D.None;
+            cd.forceReceiveLayers = SpecialLayer;
         }
         else {
-            rb.constraints = RigidbodyConstraints2D.FreezePositionX;
-            rb.velocity = Vector2.zero;
+            cd.forceReceiveLayers = defaultLayer;
         }
     }
 
