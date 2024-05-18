@@ -15,8 +15,14 @@ public class ElevatorSwitch : MonoBehaviour, ISwitch
         { // 만약 스위치가 작동되지 않았다면
             if (animator != null) animator.SetTrigger("Toggle");
             isTriggered = true;
+        }
+    }
 
-            elevator.transform.position = new Vector2(0, 1.55f);
+    public void Update()
+    {
+        if(isTriggered)
+        {
+            elevator.transform.position = Vector2.Lerp(elevator.transform.position, new Vector2(0, 1.55f), Time.deltaTime*2);
         }
     }
 }
