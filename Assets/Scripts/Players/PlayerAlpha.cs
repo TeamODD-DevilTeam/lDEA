@@ -17,6 +17,7 @@ public class PlayerAlpha : Player {
             // 강공격으로 파괴 가능한 오브젝트인지 확인합니다. 만약 파괴 가능한 오브젝트라면 파괴합니다.
             if (collider != null && collider.gameObject.TryGetComponent(out Block component)) { 
                 if (component.IsBlockType(BlockType.Normal)) Destroy(collider.gameObject);
+                else if (component.IsBlockType(BlockType.Agate)) ((Block4stage)component).DestroyGate();
             }
         }
     }
