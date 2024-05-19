@@ -28,9 +28,23 @@ public class Bullet : MonoBehaviour {
         if (collision.gameObject.TryGetComponent(out ISwitch component)) {
             component.Action();
         } else if (collision.gameObject.TryGetComponent(out Block block)) {
-            // 속성이 불일 때 잔디 블럭이면 파괴합니다.
-            if (elementType == ElementType.Fire && block.IsBlockType(BlockType.Grass))
-                Destroy(collision.gameObject);
+            // 속성이 불일 때 파괴 가능한 오브젝트를 확인합니다
+            if (elementType == ElementType.Fire) {
+                switch (block.GetBlockType()) {
+                    // 만약 잔디 블록인 경우 파괴합니다.
+                    case BlockType.Grass:
+                        Destroy(collision.gameObject);
+                        break;
+                    // 횃불인 경우 활성화합니다.
+                    case BlockType.Torch:
+                        ((Torch)block).Active();
+                        break;
+                
+                }
+            } else if (elementType == ElementType.Grass && block.IsBlockType(BlockType.Flowerpot)) {
+                // 화분인 경우 활성화합니다.
+                ((Flowerpot)component).Active();
+            }
         }
         Destroy(gameObject);
     }
