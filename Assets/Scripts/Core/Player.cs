@@ -35,10 +35,6 @@ public class Player : MonoBehaviour
     protected GameObject collisionBlock; // 플레이어 알파와 충돌한 파괴 가능한 블럭을 지정합니다.
     protected ElementType elementType = ElementType.None; // 플레이어의 공격 속성을 지정하는 변수입니다.
 
-    void Start() {
-        NetworkManager.instance.CreatePlayer();
-    }
-
     // 프레임 관련 이슈가 생길 수 있어 FixedUpdate를 사용했으나, 만약 여기서 프레임 끊김 현상이 생긴다면 Update 함수를 사용해야 합니다.
     // 매 프레임마다 Update - FixedUpdate가 순서대로 호출되는 것으로 알고 있습니다. (찾아봐야 함)
     void FixedUpdate() {

@@ -20,6 +20,12 @@ public class CameraMove : MonoBehaviour {
     [SerializeField] bool isMove = false;
     Vector3 velocity = Vector3.zero; // 카메라의 이동에 필요한 변수입니다.
     Vector3 pos; // 카메라의 위치를 지정할 변수입니다.
+
+    void Start() {
+        NetworkManager.instance.CreatePlayer();
+    }
+
+
     void Update() {
         if (!isMove) return;
         pos = (alpha.position + beta.position) / 2; // 이동할 위치를 두 오브젝트의 중앙으로 지정합니다.
