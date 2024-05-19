@@ -2324,8 +2324,8 @@ Transform:
   m_GameObject: {fileID: 633404041}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.8218, y: -3.8089, z: 0.10822437}
-  m_LocalScale: {x: 0.492, y: 1.49595, z: 1}
+  m_LocalPosition: {x: 2.8218, y: -3.6411, z: 0.10822437}
+  m_LocalScale: {x: 0.492, y: 1.8314916, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1006286469}
@@ -2414,7 +2414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c077256656ade42079f967e41139e531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 0}
+  ball: {fileID: 1559030810}
 --- !u!1 &717781367
 GameObject:
   m_ObjectHideFlags: 0
@@ -3503,6 +3503,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1559030810 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3227454833729819164, guid: b94c17d6acea6604b82fc31dc24e1bbc, type: 3}
+  m_PrefabInstance: {fileID: 1800259635}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1559030816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559030810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3ef0e7dbea31441fb41d7121e43f25d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1597090442
 GameObject:
   m_ObjectHideFlags: 0
@@ -3627,7 +3644,7 @@ Transform:
   m_GameObject: {fileID: 1597090442}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.0678234, y: -2.956909, z: 0.10822437}
+  m_LocalPosition: {x: 5.06, y: -2.63, z: 0.10822437}
   m_LocalScale: {x: 5, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4165,10 +4182,17 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7713573568008775130, guid: b94c17d6acea6604b82fc31dc24e1bbc, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3227454833729819164, guid: b94c17d6acea6604b82fc31dc24e1bbc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1559030816}
   m_SourcePrefab: {fileID: 100100000, guid: b94c17d6acea6604b82fc31dc24e1bbc, type: 3}
 --- !u!1 &1844681919
 GameObject:

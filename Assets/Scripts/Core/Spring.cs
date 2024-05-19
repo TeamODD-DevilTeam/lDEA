@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Spring : MonoBehaviour {
-    [Serializable] enum Direction { UP, DOWN, LEFT, RIGHT }
+    [Serializable] public enum Direction { UP, DOWN, LEFT, RIGHT }
     [Tooltip("스프링이 튕길 방향을 지정합니다.")]
     [SerializeField] Direction direction;
     [Tooltip("스프링이 튕기는 힘을 지정합니다.")]
@@ -58,4 +58,6 @@ public class Spring : MonoBehaviour {
         }
         return ret;
     }
+
+    public Direction GetDirection() { return direction; }
 }
