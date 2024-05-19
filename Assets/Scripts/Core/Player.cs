@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Photon.Pun;
 
 /// <summary>
 /// 플레이어에 공통적으로 사용되는 코드입니다.
@@ -21,6 +22,8 @@ public class Player : MonoBehaviour
     [SerializeField] protected bool isLeft = false;
     [Tooltip("움직이는 플랫폼에 지정된 레이어를 지정합니다.")]
     [SerializeField] LayerMask platformLayer;
+    [Tooltip("멀티플레이어 지원을 위한 PhotonView 입니다.")]
+    [SerializeField] protected PhotonView photonView;
 
     // 내부적으로 사용하는 변수
     GameObject contactPlatform; // 어떤 플랫폼 위에 올라왔는지 확인하기 위한 변수입니다.
@@ -32,9 +35,14 @@ public class Player : MonoBehaviour
     protected GameObject collisionBlock; // 플레이어 알파와 충돌한 파괴 가능한 블럭을 지정합니다.
     protected ElementType elementType = ElementType.None; // 플레이어의 공격 속성을 지정하는 변수입니다.
 
+    void Start() {
+        NetworkManager.instance.CreatePlayer();
+    }
+
     // 프레임 관련 이슈가 생길 수 있어 FixedUpdate를 사용했으나, 만약 여기서 프레임 끊김 현상이 생긴다면 Update 함수를 사용해야 합니다.
     // 매 프레임마다 Update - FixedUpdate가 순서대로 호출되는 것으로 알고 있습니다. (찾아봐야 함)
     void FixedUpdate() {
+        if (!photonView.IsMine && PhotonNetwork.IsConnected) return;
         if (!isJumping && platformDistance != Vector3.zero && contactPlatform != null) {
             transform.position = contactPlatform.transform.position - platformDistance;
         }

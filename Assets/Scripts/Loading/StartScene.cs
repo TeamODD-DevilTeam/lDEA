@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 
 public class StartScene : MonoBehaviour {
     [Tooltip("로딩 중 불러올 캔버스입니다.")]
@@ -22,6 +23,7 @@ public class StartScene : MonoBehaviour {
 
     public void StartStage(string sceneName) {
         Load(sceneName);
+        PhotonNetwork.LoadLevel(sceneName);
         volume = MusicPlayer.player.GetVolume();
         isStage = true;
         StartCoroutine(FadeOut());

@@ -3364,10 +3364,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerA
       objectReference: {fileID: 0}
-    - target: {fileID: 6565572351841799313, guid: 25ae26d9741e242c6a8760a3192e0b33, type: 3}
-      propertyPath: moveSpeed
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
