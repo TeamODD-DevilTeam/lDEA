@@ -37,9 +37,13 @@ public class Bullet : MonoBehaviour {
                         break;
                     // 횃불인 경우 활성화합니다.
                     case BlockType.Torch:
-                        ((Torch)block).ActiveTorch();
+                        ((Torch)block).Active();
                         break;
+                
                 }
+            } else if (elementType == ElementType.Grass && block.IsBlockType(BlockType.Flowerpot)) {
+                // 화분인 경우 활성화합니다.
+                ((Flowerpot)component).Active();
             }
         }
         Destroy(gameObject);
