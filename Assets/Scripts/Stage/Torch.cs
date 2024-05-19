@@ -13,7 +13,7 @@ public class Torch : Block {
     bool isActive = false; // 횃불의 상태를 저장하는 변수입니다.
 
     // 횃불이 비활성화된 상태라면 활성화합니다.
-    public void ActiveTorch() {
+    public void Active() {
         if (!isActive) {
             sprite.sprite = activedTorch;
             isActive = true;

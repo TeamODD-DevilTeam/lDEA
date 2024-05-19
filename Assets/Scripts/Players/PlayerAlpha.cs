@@ -16,8 +16,20 @@ public class PlayerAlpha : Player {
         foreach (Collider2D collider in colliders) {
             // 강공격으로 파괴 가능한 오브젝트인지 확인합니다. 만약 파괴 가능한 오브젝트라면 파괴합니다.
             if (collider != null && collider.gameObject.TryGetComponent(out Block component)) { 
-                if (component.IsBlockType(BlockType.Normal)) Destroy(collider.gameObject);
-                else if (component.IsBlockType(BlockType.Agate)) ((Block4stage)component).DestroyGate();
+                switch (component.GetBlockType()) {
+                    case BlockType.Grass:
+                        if (elementType == ElementType.Fire) Destroy(collider.gameObject);
+                        break;
+                    case BlockType.Flowerpot:
+                        if (elementType == ElementType.Grass) ((Flowerpot)component).Active();
+                        break;
+                    case BlockType.Normal:
+                        Destroy(collider.gameObject);
+                        break;
+                    case BlockType.Agate:
+                        ((Block4stage)component).DestroyGate();
+                        break;          
+                }
             }
         }
     }
