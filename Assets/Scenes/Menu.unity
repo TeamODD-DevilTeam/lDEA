@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc27220408c124e38b2a80f62a69171d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicPlayer: {fileID: 8396587102848263045, guid: e23507068bfa149cb90436fdfb0ad663, type: 3}
   loadingCanvas: {fileID: 5124388088074651358, guid: 84c9bfb18a6c54aa4b91f8077d82732e, type: 3}
 --- !u!4 &229783805
 Transform:
@@ -1464,7 +1465,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1748016850}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 229783804}
+        m_TargetAssemblyTypeName: StartScene, Assembly-CSharp
+        m_MethodName: StartStage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Stage4
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1748016850
 MonoBehaviour:
   m_ObjectHideFlags: 0

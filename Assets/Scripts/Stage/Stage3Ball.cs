@@ -3,17 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Stage3Ball : MonoBehaviour {
-    int springCount = 0;
+    bool playEffect = false;
 
-    [Tooltip("충돌을 감지할 오브젝트입니다.")]
-    [SerializeField] GameObject playerA, playerB;
-    public float maxSpeed = 1.0f;
+    void Update() {
+        if (playEffect) {
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(3.14f, -4.25f), 1.5f * Time.deltaTime);
+            StartCoroutine(effectRemove());
+        }
+    }
     
     void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.TryGetComponent(out Spring spring)) {
-            springCount = (springCount < 3) ? springCount + 1 : 1;
+            if (spring.GetDirection() == Spring.Direction.RIGHT) playEffect = true;
         }
     }
 
-    public int GetSpringCount() { return springCount; }
+    IEnumerator effectRemove() {
+        yield return new WaitForSeconds(1.5f);
+        playEffect = false;
+    }
+
+    public bool GetPlayEffect() { return playEffect; }
 }
