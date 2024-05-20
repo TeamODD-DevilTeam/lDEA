@@ -359,7 +359,7 @@ MonoBehaviour:
   platformLayer:
     serializedVersion: 2
     m_Bits: 256
-  photonView: {fileID: 0}
+  photonView: {fileID: 995669242276846149}
 --- !u!95 &4640890813489199194
 Animator:
   serializedVersion: 5
