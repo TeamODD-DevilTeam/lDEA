@@ -3094,7 +3094,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Credit\n<size=64>\uD300 \uD300</size>"
+  m_text: "Credit\n<size=64>\uB85C \uCF13 \uB2E8</size>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 38cc3ad8e4aec40dc82b0859b43814ad, type: 2}
   m_sharedMaterial: {fileID: -3250250418820339055, guid: 38cc3ad8e4aec40dc82b0859b43814ad, type: 2}
@@ -3714,7 +3714,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC5EC\uAE30\uC5D0 \uCF54\uBA58\uD2B8\uB97C \uC791\uC131\uD574\uC8FC\uC138\uC694"
+  m_text: "\uC5EC\uAE30\uC5D0 \uCF54\uBA58\uD2B8\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 73cfdd6e53cde4cf08b0d09d68f1eeb3, type: 2}
   m_sharedMaterial: {fileID: 2328079915625243252, guid: 73cfdd6e53cde4cf08b0d09d68f1eeb3, type: 2}
