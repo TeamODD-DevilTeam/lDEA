@@ -70,7 +70,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
     }
 
     public void CreatePlayer() {
-        if (PhotonNetwork.NickName == "beta") 
+        if (!PhotonNetwork.IsMasterClient) 
             PhotonNetwork.Instantiate(playerB.name, Vector3.zero, Quaternion.identity);
         else
             PhotonNetwork.Instantiate(playerA.name, Vector3.zero, Quaternion.identity);
