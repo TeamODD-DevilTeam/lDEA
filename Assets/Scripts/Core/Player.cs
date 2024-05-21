@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static Unity.Collections.AllocatorManager;
 
 /// <summary>
 /// 플레이어에 공통적으로 사용되는 코드입니다.
@@ -107,10 +108,16 @@ public class Player : MonoBehaviour
     // 스위치 등의 오브젝트와 충돌했을 때 감지하기 위한 코드입니다.
     void OnTriggerEnter2D(Collider2D collision) {
         // 스위치와 충돌했는지 확인합니다. 스위치 오브젝트가 Switch 클래스가 상속받는 ISwitch를 소유하고 있는지 확인합니다.
-        if (collision.gameObject.TryGetComponent(out ISwitch component)) {
+        if (collision.gameObject.TryGetComponent(out ISwitch component)) 
+        {
             component.Action(); // 스위치와 충돌한 경우 스위치 객체의 Action() 함수를 호출합니다.
         }
+        else if (collision.gameObject.TryGetComponent(out Block block) && block.IsBlockType(BlockType.Grass)){
+            elementType = ElementType.Grass;
+            Debug.Log("됐나");
+        }
     }
+
 
     // GroundCheck 클래스에서 호출할 바닥 상태 확인 함수입니다.
     public void SetGrounded(bool isGrounded) {

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Flowerpot : Block {
+public class Flowerpot : Block, IEnums {
     [Serializable] struct Targets {
         public GameObject target; // 토글할 오브젝트
         public bool active; // 스위치가 작동되었을 때의 오브젝트의 활성화 상태

@@ -27,7 +27,8 @@ public class Bullet : MonoBehaviour {
         // 만약 스위치에 닿았을 경우 스위치를 작동시킵니다.
         if (collision.gameObject.TryGetComponent(out ISwitch component)) {
             component.Action();
-        } else if (collision.gameObject.TryGetComponent(out Block block)) {
+        } 
+        else if (collision.gameObject.TryGetComponent(out Block block)) {
             // 속성이 불일 때 파괴 가능한 오브젝트를 확인합니다
             if (elementType == ElementType.Fire) {
                 switch (block.GetBlockType()) {
@@ -41,7 +42,8 @@ public class Bullet : MonoBehaviour {
                         break;
                 
                 }
-            } else if (elementType == ElementType.Grass && block.IsBlockType(BlockType.Flowerpot)) {
+            } 
+            else if (block.IsBlockType(BlockType.Grass) /*&& collision.gameObject.TryGetComponent(out IEnums Object)*/) {
                 // 화분인 경우 활성화합니다.
                 ((Flowerpot)component).Active();
             }
