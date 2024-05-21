@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 {
     // 하이어라키 창에서 지정해야하는 변수 - 필수로 지정해야 함
     [Tooltip("이 오브젝트의 Animator 컴포넌트를 참조합니다.")]
-    [SerializeField] Animator animator;
+    [SerializeField] protected Animator animator;
     [Tooltip("이 오브젝트의 Rigidbody2D 컴포넌트를 참조합니다.")]
     [SerializeField] Rigidbody2D rigid;
     [Tooltip("플레이어의 움직임 속도를 지정합니다.")]

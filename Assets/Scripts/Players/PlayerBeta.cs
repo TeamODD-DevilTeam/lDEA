@@ -25,8 +25,14 @@ public class PlayerBeta : Player {
         Bullet bullet = obj.GetComponent<Bullet>();
         bullet.SetDirection(isLeft); // 오브젝트가 플레이어가 바라보는 방향으로 날아갑니다.
         bullet.SetElementType(elementType); // 오브젝트가 플레이어의 원소 속성으로 지정되어 날아갑니다.
+
+        animator.SetTrigger("isAttack"); // 공격 애니메이션을 재생합니다.
     }
 
     public void SetElementType(ElementType elementType) { this.elementType = elementType; }
     public ElementType GetElementType() { return elementType; }
+
+    IEnumerator FinishAttack() {
+        yield return new WaitForSeconds(0.1f);
+    }
 }
