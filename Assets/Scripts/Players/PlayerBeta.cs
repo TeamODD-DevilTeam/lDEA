@@ -31,8 +31,4 @@ public class PlayerBeta : Player {
 
     public void SetElementType(ElementType elementType) { this.elementType = elementType; }
     public ElementType GetElementType() { return elementType; }
-
-    IEnumerator FinishAttack() {
-        yield return new WaitForSeconds(0.1f);
-    }
 }
