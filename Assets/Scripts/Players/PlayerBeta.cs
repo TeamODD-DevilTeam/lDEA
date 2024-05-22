@@ -8,6 +8,8 @@ public class PlayerBeta : Player {
     [SerializeField] GameObject bulletPrefab;
     [Tooltip("생성할 발사체의 초기 위치입니다.")]
     [SerializeField] GameObject spawnPoint;
+    [Tooltip("효과음을 재생할 컴포넌트입니다.")]
+    [SerializeField] AudioSource audioSource;
 
     // 클래스 내부에서 사용하는 변수
     Vector3 pos; // 발사체가 생성될 위치를 지정하는 변수
@@ -27,6 +29,7 @@ public class PlayerBeta : Player {
         bullet.SetElementType(elementType); // 오브젝트가 플레이어의 원소 속성으로 지정되어 날아갑니다.
 
         animator.SetTrigger("isAttack"); // 공격 애니메이션을 재생합니다.
+        audioSource.Play();
     }
 
     public void SetElementType(ElementType elementType) { this.elementType = elementType; }
