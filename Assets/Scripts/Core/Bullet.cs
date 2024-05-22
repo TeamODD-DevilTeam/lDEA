@@ -43,7 +43,7 @@ public class Bullet : MonoBehaviour {
                 
                 }
             } 
-            else if (block.IsBlockType(BlockType.Grass) /*&& collision.gameObject.TryGetComponent(out IEnums Object)*/) {
+            else if (block.IsBlockType(BlockType.Grass) ) {
                 // 화분인 경우 활성화합니다.
                 ((Flowerpot)component).Active();
             }

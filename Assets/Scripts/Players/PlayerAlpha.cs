@@ -23,10 +23,9 @@ public class PlayerAlpha : Player {
                         break;
                     case BlockType.Flowerpot:
                         if (elementType == ElementType.Grass) ((Flowerpot)component).Active();
-                        // Debug.Log("됐나");
                         break;
                     case BlockType.Normal:
-                        Destroy(collider.gameObject);
+                        ((Desk)component).DestroyObj();
                         break;
                     case BlockType.Agate:
                         ((Block4stage)component).DestroyGate();

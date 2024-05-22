@@ -112,9 +112,15 @@ public class Player : MonoBehaviour
         {
             component.Action(); // 스위치와 충돌한 경우 스위치 객체의 Action() 함수를 호출합니다.
         }
-        else if (collision.gameObject.TryGetComponent(out Block block) && block.IsBlockType(BlockType.Grass)){
+        else if (collision.gameObject.TryGetComponent(out Block block) && block.IsBlockType(BlockType.Grass))
+        {
             elementType = ElementType.Grass;
             Debug.Log("됐나");
+        }
+        else if (block.IsBlockType(BlockType.Fire))
+        {
+            elementType = ElementType.Fire;
+            Debug.Log("됐나2");
         }
     }
 
