@@ -353,6 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 0
+  block5: {fileID: 0}
 --- !u!61 &158944910
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1354,6 +1355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 0
+  block5: {fileID: 0}
 --- !u!50 &375662854
 Rigidbody2D:
   serializedVersion: 4
@@ -2068,6 +2070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 1
+  block5: {fileID: 0}
   counter: {fileID: 1867943842}
 --- !u!4 &499699036 stripped
 Transform:
@@ -2371,7 +2374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &633404042
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4284,6 +4287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 1
+  block5: {fileID: 0}
   counter: {fileID: 1867943842}
 --- !u!1 &1665172628
 GameObject:
@@ -6020,6 +6024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 1
+  block5: {fileID: 0}
   counter: {fileID: 1867943842}
 --- !u!1 &2100168423
 GameObject:
@@ -6193,6 +6198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 1
+  block5: {fileID: 0}
   counter: {fileID: 1867943842}
 --- !u!1 &2132013287 stripped
 GameObject:
