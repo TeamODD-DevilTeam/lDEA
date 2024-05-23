@@ -9,17 +9,5 @@ public class Block : MonoBehaviour {
     public void SetBlockType(BlockType blockType) { this.blockType = blockType; }
     public BlockType GetBlockType() { return blockType; }
     public bool IsBlockType(BlockType blockType) { return this.blockType == blockType; }
-
-    public GameObject block5;
-    bool isActive = false;
-    public void Active(){
-        gameObject.SetActive(false);
-
-        if (!isActive)
-        {
-            isActive = true;
-            block5.SetActive(true);
-        }
-    }
 }
 
