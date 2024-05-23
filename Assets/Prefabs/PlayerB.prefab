@@ -262,9 +262,12 @@ MonoBehaviour:
   platformLayer:
     serializedVersion: 2
     m_Bits: 256
+  jumpEffectPlayer: {fileID: 5147192195363200244}
+  audioClip: {fileID: 8300000, guid: 8e3246fa548234b54b2e14b78058356c, type: 3}
   bulletPrefab: {fileID: 8824931198063429515, guid: e62202d39e36747d8b4b26e3ef05e82f, type: 3}
   spawnPoint: {fileID: 9035885013590409185}
   audioSource: {fileID: 5147192195363200244}
+  attackClip: {fileID: 8300000, guid: 8e3246fa548234b54b2e14b78058356c, type: 3}
 --- !u!95 &52411094792518354
 Animator:
   serializedVersion: 5

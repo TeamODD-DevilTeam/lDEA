@@ -22,6 +22,10 @@ public class Player : MonoBehaviour
     [SerializeField] protected bool isLeft = false;
     [Tooltip("움직이는 플랫폼에 지정된 레이어를 지정합니다.")]
     [SerializeField] LayerMask platformLayer;
+    [Tooltip("점프 효과음을 재생할 컴포넌트입니다.")]
+    [SerializeField] AudioSource jumpEffectPlayer;
+    [Tooltip("점프 효과음입니다.")]
+    [SerializeField] AudioClip audioClip;
 
     // 내부적으로 사용하는 변수
     GameObject contactPlatform; // 어떤 플랫폼 위에 올라왔는지 확인하기 위한 변수입니다.
@@ -72,8 +76,11 @@ public class Player : MonoBehaviour
 
     // 키보드 입력을 받음 (점프 토글)
     public void OnJump(InputAction.CallbackContext value) {
-        if (value.started) isJumping = true;
-        else if (value.canceled) isJumping = false;
+        if (value.started) {
+            jumpEffectPlayer.clip = audioClip;
+            jumpEffectPlayer.Play();
+            isJumping = true;
+        } else if (value.canceled) isJumping = false;
     }
 
     // 플랫폼 등의 오브젝트와 충돌했을 때 감지하기 위한 코드입니다.

@@ -61,5 +61,6 @@ public class StartScene : MonoBehaviour {
             yield return new WaitForEndOfFrame();
             MusicPlayer.player.ChangeVolume(MusicPlayer.player.GetVolume() - (volume / 60.0f));
         }
+        Destroy(MusicPlayer.player);
     }
 }

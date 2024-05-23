@@ -15,6 +15,10 @@ public class StoryManager : StoryParser {
     [Tooltip("대사 출력창입니다.")]
     [SerializeField] TMP_Text nameObj, scriptObj;
 
+    [Tooltip("음악 재생용입니다.")]
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip[] musics;
+
     List<Story> story;
     int position = 0; // 현재 대사의 출력 위치입니다.
     bool isPrinting = false; // 현재 대사가 출력중인지 확인합니다.
@@ -22,6 +26,8 @@ public class StoryManager : StoryParser {
 
     void Start() {
         story = ParseStory(stageNum);
+        audioSource.clip = musics[stageNum];
+        audioSource.Play();
         PrintText();
     }
 
@@ -30,7 +36,9 @@ public class StoryManager : StoryParser {
         if (Input.anyKeyDown) { // 만약 아무 키나 눌렀을 때
             if (!isPrinting) { // 만약 출력 중이 아니라면
                 if (position < story.Count) PrintText(); // 다음 대사가 있다면 출력합니다.
-                else Application.Quit(); // 없다면 게임을 종료합니다?
+                else {
+                    
+                }
             } else { // 출력 중이라면
                 StopCoroutine(coroutine); // 출력 중인 코루틴을 멈추고
                 scriptObj.text = story[position - 1].script; // 대사는 한 번에 전부 보여줍니다.
