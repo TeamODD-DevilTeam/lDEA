@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 public class StartScene : MonoBehaviour {
     [Tooltip("로딩 중 불러올 캔버스입니다.")]
     [SerializeField] GameObject loadingCanvas;
+    [Tooltip("버튼 효과음을 재생할 컴포넌트입니다.")]
+    [SerializeField] AudioSource audioSource;
     GameObject canvas;
     bool isStage = false;
     float volume = 0;
@@ -23,6 +25,7 @@ public class StartScene : MonoBehaviour {
     public void StartStage(string sceneName) {
         Load(sceneName);
         volume = MusicPlayer.player.GetVolume();
+        // audioSource.Play();
         isStage = true;
         StartCoroutine(FadeOut());
     }

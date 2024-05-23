@@ -24,8 +24,8 @@ public class Demo01 : MonoBehaviour {
                 else Application.Quit(); // 없다면 게임을 종료합니다?
             } else { // 출력 중이라면
                 StopCoroutine(coroutine); // 출력 중인 코루틴을 멈추고
-                isPrinting = false; // 출력 중이 아님을 표시하고
-                text.text = scripts[position]; // 대사는 한 번에 전부 보여줍니다.
+                text.text = scripts[position - 1]; // 대사는 한 번에 전부 보여줍니다.
+                isPrinting = false; // 텍스트가 출력 중이 아님을 표시합니다.
             }
         }
     }

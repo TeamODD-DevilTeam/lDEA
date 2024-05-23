@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,7 +13,7 @@ public class PlayerAlpha : Player {
         pos = transform.position;
         if (isLeft) pos.x -= 0.5f;
         else pos.x += 0.5f;
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(pos, new Vector2(0.5f, 0), 1.5f);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(pos, new Vector2(0.5f, 1), 1.5f);
         foreach (Collider2D collider in colliders) {
             // 강공격으로 파괴 가능한 오브젝트인지 확인합니다. 만약 파괴 가능한 오브젝트라면 파괴합니다.
             if (collider != null && collider.gameObject.TryGetComponent(out Block component)) { 
@@ -24,7 +25,7 @@ public class PlayerAlpha : Player {
                         if (elementType == ElementType.Grass) ((Flowerpot)component).Active();
                         break;
                     case BlockType.Normal:
-                        Destroy(collider.gameObject);
+                        ((Desk)component).DestroyObj();
                         break;
                     case BlockType.Agate:
                         ((Block4stage)component).DestroyGate();
@@ -33,6 +34,7 @@ public class PlayerAlpha : Player {
             }
         }
     }
+
 
     // interface
 }

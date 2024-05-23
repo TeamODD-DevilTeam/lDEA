@@ -4,7 +4,8 @@ public enum BlockType {
         Grass, // 베타의 불 속성 원거리 공격으로만 파괴 가능
         Agate, // 알파 강공격으로 gate가 부숴집니다.
         Torch, // 횃불입니다. 베타의 불 속성 원거리 공격으로만 상호작용 가능
-        Flowerpot // 화분입니다. 알파/베타의 불 속성 공격으로만 상호작용 가능
+        Flowerpot,// 화분입니다. 알파/베타의 불 속성 공격으로만 상호작용 가능
+        Fire
 };
 
 public enum ElementType {

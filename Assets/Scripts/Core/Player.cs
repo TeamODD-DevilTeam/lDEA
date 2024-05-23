@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static Unity.Collections.AllocatorManager;
 
 /// <summary>
 /// 플레이어에 공통적으로 사용되는 코드입니다.
@@ -10,7 +11,7 @@ public class Player : MonoBehaviour
 {
     // 하이어라키 창에서 지정해야하는 변수 - 필수로 지정해야 함
     [Tooltip("이 오브젝트의 Animator 컴포넌트를 참조합니다.")]
-    [SerializeField] Animator animator;
+    [SerializeField] protected Animator animator;
     [Tooltip("이 오브젝트의 Rigidbody2D 컴포넌트를 참조합니다.")]
     [SerializeField] Rigidbody2D rigid;
     [Tooltip("플레이어의 움직임 속도를 지정합니다.")]
@@ -110,6 +111,10 @@ public class Player : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out ISwitch component)) {
             component.Action(); // 스위치와 충돌한 경우 스위치 객체의 Action() 함수를 호출합니다.
         }
+        if (collision.gameObject.TryGetComponent(out SpecialElement element)) {
+            elementType = element.GetElementType();
+        }
+        
     }
 
     // GroundCheck 클래스에서 호출할 바닥 상태 확인 함수입니다.
