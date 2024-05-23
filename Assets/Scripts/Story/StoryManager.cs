@@ -16,10 +16,7 @@ public class StoryManager : StoryParser {
     [Tooltip("대사 출력창입니다.")]
     [SerializeField] TMP_Text nameObj, scriptObj;
 
-    [Tooltip("음악 재생용입니다.")]
-    [SerializeField] AudioSource audioSource;
-    [SerializeField] AudioClip[] musics;
-
+    [Tooltip("대화창이 보여지는 캔버스입니다.")]
     [SerializeField] Canvas canvas;
 
     List<Story> story;
@@ -29,8 +26,6 @@ public class StoryManager : StoryParser {
 
     void Start() {
         story = ParseStory(stageNum);
-        audioSource.clip = musics[stageNum];
-        audioSource.Play();
         PrintText();
     }
 

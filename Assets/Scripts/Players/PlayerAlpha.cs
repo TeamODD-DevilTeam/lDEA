@@ -34,6 +34,7 @@ public class PlayerAlpha : Player {
                 }
             }
         }
+        animator.SetTrigger("isAttack");
     }
 
 

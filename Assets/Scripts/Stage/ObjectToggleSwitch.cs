@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+using UnityEngine.Tilemaps;
 
 public class ObjectToggleSwitch : MonoBehaviour, ISwitch {
     [Serializable] struct Targets {
@@ -20,8 +22,15 @@ public class ObjectToggleSwitch : MonoBehaviour, ISwitch {
             animator.SetTrigger("Toggle");
             toggle = true;
             foreach (Targets item in targets) {
-                item.target.SetActive(item.active);
+                float endValue = item.active ? 1f : 0f;
+                item.target.transform.DOLocalMoveX(7.86f, 0.2f);
+                StartCoroutine(AfterEffect(item, 0.2f));
             }
         }
+    }
+
+    IEnumerator AfterEffect(Targets item, float time) {
+        yield return new WaitForSeconds(time);
+        item.target.SetActive(item.active);
     }
 }
