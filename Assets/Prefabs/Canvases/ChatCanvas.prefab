@@ -264,13 +264,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e411c62c11f4d4a079b5547380048fa7, type: 3}
   textAsset:
   - {fileID: 4900000, guid: fb5c70685b6fc40958167e2dd43ae48e, type: 3}
+  - {fileID: 4900000, guid: 9c7182223b0ad4451aa53da841608234, type: 3}
   stageNum: 0
   alphaImage: {fileID: 5456827147148351303}
   betaImage: {fileID: 3742897540043951764}
   nameObj: {fileID: 15726040095535969}
   scriptObj: {fileID: 5190982187395930607}
-  audioSource: {fileID: 0}
-  musics: []
   canvas: {fileID: 5478275279208032781}
 --- !u!1 &6983647250708140711
 GameObject:
