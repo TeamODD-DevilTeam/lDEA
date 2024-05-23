@@ -273,6 +273,7 @@ MonoBehaviour:
   musics:
   - {fileID: 8300000, guid: f15891cd3c31b4dcc9e59540d2cdc3b5, type: 3}
   - {fileID: 8300000, guid: b5a2ae895b8f9422ab5d0e36038d196b, type: 3}
+  canvas: {fileID: 5478275279208032781}
 --- !u!1 &5975878341591281296
 GameObject:
   m_ObjectHideFlags: 0

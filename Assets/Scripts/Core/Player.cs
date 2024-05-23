@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
     [SerializeField] AudioSource jumpEffectPlayer;
     [Tooltip("점프 효과음입니다.")]
     [SerializeField] AudioClip audioClip;
+    [Tooltip("채팅창 캔버스입니다.")]
+    [SerializeField] protected Canvas chatCanvas;
 
     // 내부적으로 사용하는 변수
     GameObject contactPlatform; // 어떤 플랫폼 위에 올라왔는지 확인하기 위한 변수입니다.
@@ -60,6 +62,7 @@ public class Player : MonoBehaviour
 
     // 키보드 입력을 받음 (좌우 이동)
     public void OnMove(InputAction.CallbackContext value) {
+        if (chatCanvas.gameObject.activeSelf) return;
         Vector2 input = value.ReadValue<Vector2>(); // 입력을 받아옵니다.
         if (input != null) { // 입력이 잘못되었을 수 있으므로, input을 확인합니다.
             if (animator != null) animator.SetBool("isMove", true); // 플레이어가 움직이는 애니메이션을 재생
@@ -76,6 +79,7 @@ public class Player : MonoBehaviour
 
     // 키보드 입력을 받음 (점프 토글)
     public void OnJump(InputAction.CallbackContext value) {
+        if (chatCanvas.gameObject.activeSelf) return;
         if (value.started) {
             jumpEffectPlayer.clip = audioClip;
             jumpEffectPlayer.Play();

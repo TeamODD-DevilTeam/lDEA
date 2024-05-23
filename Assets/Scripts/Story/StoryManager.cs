@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class StoryManager : StoryParser {
     [Tooltip("이 스테이지의 값입니다.")]
@@ -18,6 +19,8 @@ public class StoryManager : StoryParser {
     [Tooltip("음악 재생용입니다.")]
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip[] musics;
+
+    [SerializeField] Canvas canvas;
 
     List<Story> story;
     int position = 0; // 현재 대사의 출력 위치입니다.
@@ -37,7 +40,7 @@ public class StoryManager : StoryParser {
             if (!isPrinting) { // 만약 출력 중이 아니라면
                 if (position < story.Count) PrintText(); // 다음 대사가 있다면 출력합니다.
                 else {
-                    
+                    canvas.gameObject.SetActive(false);
                 }
             } else { // 출력 중이라면
                 StopCoroutine(coroutine); // 출력 중인 코루틴을 멈추고

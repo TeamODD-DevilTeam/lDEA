@@ -8,6 +8,7 @@ public class PlayerAlpha : Player {
     Vector2 pos;
     // 플레이어가 공격 키를 눌렀을 때를 감지합니다. 알파와 베타의 공격은 서로 다른 공격이기에 Player 클래스를 상속받는 자식 클래스에 작성하였습니다.
     public void OnAttack(InputAction.CallbackContext value) {
+        if (chatCanvas.gameObject.activeSelf) return;
         if (!value.started) return;
         // 가로가 2, 세로가 0인 사각형 범위 내의 콜라이더를 소유하고 있는 오브젝트를 확인합니다.
         pos = transform.position;
