@@ -8,6 +8,7 @@ using UnityEngine.Tilemaps;
 public class ObjectToggleSwitch : MonoBehaviour, ISwitch {
     [Serializable] struct Targets {
         public GameObject target; // 토글할 오브젝트
+        public float moveTo; // 오브젝트가 움직일 위치
         public bool active; // 스위치가 작동되었을 때의 오브젝트의 활성화 상태
     }
 
@@ -23,7 +24,7 @@ public class ObjectToggleSwitch : MonoBehaviour, ISwitch {
             toggle = true;
             foreach (Targets item in targets) {
                 float endValue = item.active ? 1f : 0f;
-                item.target.transform.DOLocalMoveX(7.86f, 0.2f);
+                item.target.transform.DOLocalMoveX(item.moveTo, 0.2f);
                 StartCoroutine(AfterEffect(item, 0.2f));
             }
         }

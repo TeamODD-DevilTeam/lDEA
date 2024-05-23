@@ -176,7 +176,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 59786c53123cc4900b18652fbe2aa52b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -360,6 +360,7 @@ MonoBehaviour:
     m_Bits: 256
   jumpEffectPlayer: {fileID: 494540614608621589}
   audioClip: {fileID: 8300000, guid: 8e3246fa548234b54b2e14b78058356c, type: 3}
+  chatCanvas: {fileID: 0}
 --- !u!95 &4640890813489199194
 Animator:
   serializedVersion: 5

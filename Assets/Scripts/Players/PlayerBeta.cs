@@ -18,7 +18,7 @@ public class PlayerBeta : Player {
     
     // 플레이어가 공격 키를 눌렀을 때를 감지합니다. 알파와 베타의 공격은 서로 다른 공격이기에 Player 클래스를 상속받는 자식 클래스에 작성하였습니다.
     public void OnAttack(InputAction.CallbackContext value) {
-        if (!value.started || chatCanvas.gameObject.activeSelf) return;
+        if (!value.started || !isMoveable || chatCanvas.gameObject.activeSelf) return;
         // 좌 또는 우방향을 보고 있음에 따라 발사체가 생성되는 위치와 방향을 지정합니다.
         pos = transform.position; // 현재 위치를 먼저 가져옵니다.
         pos.x = isLeft ? transform.position.x - 0.55f : transform.position.x + 0.55f; // 좌측을 보고 있는 경우 현위치의 왼쪽으로 지정, 우측을 보고 있는 경우 현위치의 오른쪽으로 지정

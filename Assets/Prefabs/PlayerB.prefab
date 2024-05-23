@@ -80,7 +80,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 488a7e5f10a624cb8b4cbca0ab31a836, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -264,6 +264,7 @@ MonoBehaviour:
     m_Bits: 256
   jumpEffectPlayer: {fileID: 5147192195363200244}
   audioClip: {fileID: 8300000, guid: 8e3246fa548234b54b2e14b78058356c, type: 3}
+  chatCanvas: {fileID: 0}
   bulletPrefab: {fileID: 8824931198063429515, guid: e62202d39e36747d8b4b26e3ef05e82f, type: 3}
   spawnPoint: {fileID: 9035885013590409185}
   audioSource: {fileID: 5147192195363200244}

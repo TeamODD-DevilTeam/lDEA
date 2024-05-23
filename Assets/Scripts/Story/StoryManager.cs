@@ -48,6 +48,15 @@ public class StoryManager : StoryParser {
     void PrintText() {
         // 현재 발화자를 감지합니다.
         nameObj.text = story[position].name;
+        if (story[position].image.IndexOf("b") != -1) {
+            alphaImage.color = SetColor(160, 160, 160, 255);
+            betaImage.color = SetColor(255, 255, 255, 255);
+            betaImage.sprite = GetSprite(story[position].image);
+        } else {
+            alphaImage.color = SetColor(255, 255, 255, 255);
+            betaImage.color = SetColor(160, 160, 160, 255);
+            alphaImage.sprite = GetSprite(story[position].image);
+        }
 
         // 대사 출력을 시작합니다.
         coroutine = StartCoroutine(PrintText(story[position].script));
@@ -61,5 +70,9 @@ public class StoryManager : StoryParser {
             yield return new WaitForSeconds(0.05f); // 0.05초만큼 기다렸다가 반복문을 실행합니다. 코루틴문에서 필수적으로 들어가야하는 구문입니다.
         }
         isPrinting = false; // 출력이 끝났음을 알립니다.
+    }
+
+    Color SetColor(float r, float g, float b, float a = 255) {
+        return new Color(r/255f, g/255f, b/255f, a/255f);
     }
 }

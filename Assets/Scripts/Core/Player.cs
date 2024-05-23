@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     // 자식 클래스에서도 사용하는 변수 (알파, 베타가 공통적으로 사용하는 변수)
     protected GameObject collisionBlock; // 플레이어 알파와 충돌한 파괴 가능한 블럭을 지정합니다.
     protected ElementType elementType = ElementType.None; // 플레이어의 공격 속성을 지정하는 변수입니다.
+    protected bool isMoveable = true; // 문에 닿은 경우 이동을 정지하기 위해 사용하는 변수입니다.
 
     // 프레임 관련 이슈가 생길 수 있어 FixedUpdate를 사용했으나, 만약 여기서 프레임 끊김 현상이 생긴다면 Update 함수를 사용해야 합니다.
     // 매 프레임마다 Update - FixedUpdate가 순서대로 호출되는 것으로 알고 있습니다. (찾아봐야 함)
@@ -62,7 +63,7 @@ public class Player : MonoBehaviour
 
     // 키보드 입력을 받음 (좌우 이동)
     public void OnMove(InputAction.CallbackContext value) {
-        if (chatCanvas.gameObject.activeSelf) return;
+        if (chatCanvas.gameObject.activeSelf || !isMoveable) return;
         Vector2 input = value.ReadValue<Vector2>(); // 입력을 받아옵니다.
         if (input != null) { // 입력이 잘못되었을 수 있으므로, input을 확인합니다.
             if (animator != null) animator.SetBool("isMove", true); // 플레이어가 움직이는 애니메이션을 재생
@@ -132,6 +133,11 @@ public class Player : MonoBehaviour
     public void SetGrounded(bool isGrounded) {
         // 전달받은 값으로 moveDirectionY값과 isGrounded값을 설정합니다.
         this.isGrounded = isGrounded;
+    }
+
+    public void SetMoveable(bool isMoveable) {
+        this.isMoveable = isMoveable;
+        if (!isMoveable) animator.SetBool("isMove", false);
     }
 
 }
