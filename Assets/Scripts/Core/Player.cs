@@ -29,6 +29,8 @@ public class Player : MonoBehaviour
     [Tooltip("채팅창 캔버스입니다.")]
     [SerializeField] protected Canvas chatCanvas;
 
+    [SerializeField] protected GameObject fire, grass; // 5스테 현속성 표기용
+
     // 내부적으로 사용하는 변수
     GameObject contactPlatform; // 어떤 플랫폼 위에 올라왔는지 확인하기 위한 변수입니다.
     Vector3 platformDistance = Vector3.zero; // 플랫폼 위에 올라왔을 때 같이 움직이기 위한 변수입니다.
@@ -125,6 +127,18 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.TryGetComponent(out SpecialElement element)) {
             elementType = element.GetElementType();
+            if (fire != null && grass != null) {
+                switch (elementType) {
+                    case ElementType.Fire:
+                        fire.SetActive(true);
+                        grass.SetActive(false);
+                        break;
+                    case ElementType.Grass:
+                        fire.SetActive(false);
+                        grass.SetActive(true);
+                        break;
+                }
+            }
         }
         
     }

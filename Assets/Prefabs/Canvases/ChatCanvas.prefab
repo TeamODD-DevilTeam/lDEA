@@ -265,6 +265,7 @@ MonoBehaviour:
   textAsset:
   - {fileID: 4900000, guid: fb5c70685b6fc40958167e2dd43ae48e, type: 3}
   - {fileID: 4900000, guid: 9c7182223b0ad4451aa53da841608234, type: 3}
+  - {fileID: 4900000, guid: c72e2fb86d265467dbf9d768990d4d08, type: 3}
   stageNum: 0
   alphaImage: {fileID: 5456827147148351303}
   betaImage: {fileID: 3742897540043951764}
