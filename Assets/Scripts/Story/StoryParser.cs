@@ -30,7 +30,7 @@ public class StoryParser : MonoBehaviour {
 
     protected Sprite GetSprite(string image) {
         Sprite sprite = alpha[0];
-        switch (image) {
+        switch (image.Trim()) {
             case "a0":
                 sprite = alpha[0];
                 break;
@@ -50,6 +50,7 @@ public class StoryParser : MonoBehaviour {
                 sprite = beta[2];
                 break;
         }
+        Debug.Log(sprite.name);
         return sprite;
     }
 }

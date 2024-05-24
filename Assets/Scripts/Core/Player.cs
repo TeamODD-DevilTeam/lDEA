@@ -22,6 +22,14 @@ public class Player : MonoBehaviour
     [SerializeField] protected bool isLeft = false;
     [Tooltip("움직이는 플랫폼에 지정된 레이어를 지정합니다.")]
     [SerializeField] LayerMask platformLayer;
+    [Tooltip("점프 효과음을 재생할 컴포넌트입니다.")]
+    [SerializeField] AudioSource jumpEffectPlayer;
+    [Tooltip("점프 효과음입니다.")]
+    [SerializeField] AudioClip audioClip;
+    [Tooltip("채팅창 캔버스입니다.")]
+    [SerializeField] protected Canvas chatCanvas;
+
+    [SerializeField] protected GameObject fire, grass; // 5스테 현속성 표기용
 
     // 내부적으로 사용하는 변수
     GameObject contactPlatform; // 어떤 플랫폼 위에 올라왔는지 확인하기 위한 변수입니다.
@@ -32,6 +40,7 @@ public class Player : MonoBehaviour
     // 자식 클래스에서도 사용하는 변수 (알파, 베타가 공통적으로 사용하는 변수)
     protected GameObject collisionBlock; // 플레이어 알파와 충돌한 파괴 가능한 블럭을 지정합니다.
     protected ElementType elementType = ElementType.None; // 플레이어의 공격 속성을 지정하는 변수입니다.
+    protected bool isMoveable = true; // 문에 닿은 경우 이동을 정지하기 위해 사용하는 변수입니다.
 
     // 프레임 관련 이슈가 생길 수 있어 FixedUpdate를 사용했으나, 만약 여기서 프레임 끊김 현상이 생긴다면 Update 함수를 사용해야 합니다.
     // 매 프레임마다 Update - FixedUpdate가 순서대로 호출되는 것으로 알고 있습니다. (찾아봐야 함)
@@ -49,6 +58,8 @@ public class Player : MonoBehaviour
         if (isJumping && isGrounded) {
             platformDistance = Vector3.zero;
             rigid.velocity = new Vector2(rigid.velocity.x, jumpPower);
+            jumpEffectPlayer.clip = audioClip;
+            jumpEffectPlayer.Play();
             isGrounded = false; // 이 코드가 한 번만 실행되게끔 합니다.
         }
         rigid.velocity = new Vector2(rigid.velocity.x, rigid.velocity.y);
@@ -56,6 +67,7 @@ public class Player : MonoBehaviour
 
     // 키보드 입력을 받음 (좌우 이동)
     public void OnMove(InputAction.CallbackContext value) {
+        if (chatCanvas.gameObject.activeSelf || !isMoveable) return;
         Vector2 input = value.ReadValue<Vector2>(); // 입력을 받아옵니다.
         if (input != null) { // 입력이 잘못되었을 수 있으므로, input을 확인합니다.
             if (animator != null) animator.SetBool("isMove", true); // 플레이어가 움직이는 애니메이션을 재생
@@ -72,8 +84,10 @@ public class Player : MonoBehaviour
 
     // 키보드 입력을 받음 (점프 토글)
     public void OnJump(InputAction.CallbackContext value) {
-        if (value.started) isJumping = true;
-        else if (value.canceled) isJumping = false;
+        if (chatCanvas.gameObject.activeSelf) return;
+        if (value.started) {
+            isJumping = true;
+        } else if (value.canceled) isJumping = false;
     }
 
     // 플랫폼 등의 오브젝트와 충돌했을 때 감지하기 위한 코드입니다.
@@ -113,6 +127,18 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.TryGetComponent(out SpecialElement element)) {
             elementType = element.GetElementType();
+            if (fire != null && grass != null) {
+                switch (elementType) {
+                    case ElementType.Fire:
+                        fire.SetActive(true);
+                        grass.SetActive(false);
+                        break;
+                    case ElementType.Grass:
+                        fire.SetActive(false);
+                        grass.SetActive(true);
+                        break;
+                }
+            }
         }
         
     }
@@ -121,6 +147,11 @@ public class Player : MonoBehaviour
     public void SetGrounded(bool isGrounded) {
         // 전달받은 값으로 moveDirectionY값과 isGrounded값을 설정합니다.
         this.isGrounded = isGrounded;
+    }
+
+    public void SetMoveable(bool isMoveable) {
+        this.isMoveable = isMoveable;
+        if (!isMoveable) animator.SetBool("isMove", false);
     }
 
 }

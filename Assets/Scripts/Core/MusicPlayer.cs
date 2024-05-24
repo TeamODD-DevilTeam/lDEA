@@ -48,7 +48,15 @@ public class MusicPlayer : MonoBehaviour {
         return audioSource.volume;
     }
 
+    public AudioClip GetCurrentAudio() {
+        return audioSource.clip;
+    }
+
     public AudioClip GetStageAudio() {
         return musics.stageBgm;
+    }
+
+    public AudioClip GetDefaultAudio() {
+        return musics.defaultBgm;
     }
 }

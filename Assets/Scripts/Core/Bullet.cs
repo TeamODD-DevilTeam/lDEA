@@ -44,7 +44,7 @@ public class Bullet : MonoBehaviour {
             } 
             else if (elementType == ElementType.Grass) {
                 // 화분인 경우 활성화합니다.
-                ((Flowerpot)block).Active();
+                if (block.GetBlockType() == BlockType.Flowerpot) ((Flowerpot)block).Active();
             }
         }
         Destroy(gameObject);
