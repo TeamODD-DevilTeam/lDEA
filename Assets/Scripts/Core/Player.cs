@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static Unity.Collections.AllocatorManager;
 
 /// <summary>
 /// 플레이어에 공통적으로 사용되는 코드입니다.

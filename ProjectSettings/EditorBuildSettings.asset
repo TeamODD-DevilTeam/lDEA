@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Secredit.unity
     guid: d8a9c21a9f00d495c8469ef01c5ecefc
+  - enabled: 1
+    path: Assets/Scenes/Secrets/Demo01.unity
+    guid: 6891d9e50dca54c9a84191623f526bb9
   m_configObjects: {}

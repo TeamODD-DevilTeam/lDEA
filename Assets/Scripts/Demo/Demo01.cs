@@ -7,6 +7,7 @@ using UnityEngine;
 public class Demo01 : MonoBehaviour {
     [SerializeField] TMP_Text text;
     [SerializeField] TextAsset csvAsset;
+    [SerializeField] StartScene startScene;
 
     List<string> scripts = new List<string>(); // 스크립트 데이터를 저장할 리스트입니다.
     int position = 0; // 현재 대사의 출력 위치입니다.
@@ -21,7 +22,7 @@ public class Demo01 : MonoBehaviour {
         if (Input.anyKeyDown) { // 만약 아무 키나 눌렀을 때
             if (!isPrinting) { // 만약 출력 중이 아니라면
                 if (position < scripts.Count) PrintText(); // 다음 대사가 있다면 출력합니다.
-                else Application.Quit(); // 없다면 게임을 종료합니다?
+                else startScene.Load("Title");
             } else { // 출력 중이라면
                 StopCoroutine(coroutine); // 출력 중인 코루틴을 멈추고
                 text.text = scripts[position - 1]; // 대사는 한 번에 전부 보여줍니다.

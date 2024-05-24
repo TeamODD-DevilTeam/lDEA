@@ -18,6 +18,13 @@ public class StartScene : MonoBehaviour {
         Application.Quit();
     }
 
+    public void LoadWithoutMusic(string sceneName) {
+        if (LoadingManager.instance != null)
+            Destroy(LoadingManager.instance.gameObject);
+        MusicPlayer.player.Stop();
+        StartCoroutine(Loading(sceneName, 0.5f));
+    }
+
     public void Load(string sceneName) {
         if (LoadingManager.instance != null)
             Destroy(LoadingManager.instance.gameObject);
@@ -45,7 +52,7 @@ public class StartScene : MonoBehaviour {
             if (async.progress >= 0.9f) {
                 async.allowSceneActivation = true;
                 DOTween.KillAll();
-                if (canvas.TryGetComponent(out Animator animator)) {
+                if (canvas != null && canvas.TryGetComponent(out Animator animator)) {
                     animator.SetTrigger("Finished");
                     // if (isStage) StartCoroutine(FadeIn());
                 }
