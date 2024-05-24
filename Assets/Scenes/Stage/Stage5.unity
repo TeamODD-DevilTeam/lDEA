@@ -423,7 +423,7 @@ PrefabInstance:
     - target: {fileID: 3200869606874705007, guid: c56dd115e221e4da1b572db1cb2471f4, type: 3}
       propertyPath: counter
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1836689749}
     - target: {fileID: 5077714645478316235, guid: c56dd115e221e4da1b572db1cb2471f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.05928
@@ -3149,7 +3149,7 @@ PrefabInstance:
     - target: {fileID: 3200869606874705007, guid: c56dd115e221e4da1b572db1cb2471f4, type: 3}
       propertyPath: counter
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1836689749}
     - target: {fileID: 5077714645478316235, guid: c56dd115e221e4da1b572db1cb2471f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.11
@@ -3826,7 +3826,7 @@ PrefabInstance:
     - target: {fileID: 3200869606874705007, guid: c56dd115e221e4da1b572db1cb2471f4, type: 3}
       propertyPath: counter
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1836689749}
     - target: {fileID: 5077714645478316235, guid: c56dd115e221e4da1b572db1cb2471f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.43
@@ -5552,7 +5552,7 @@ GameObject:
   - component: {fileID: 1876308042}
   - component: {fileID: 1876308041}
   - component: {fileID: 1876308046}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6391,7 +6391,7 @@ PrefabInstance:
     - target: {fileID: 3200869606874705007, guid: c56dd115e221e4da1b572db1cb2471f4, type: 3}
       propertyPath: counter
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1836689749}
     - target: {fileID: 5077714645478316235, guid: c56dd115e221e4da1b572db1cb2471f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.974
