@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage/Stage5.unity
     guid: 8cbae4b2b0ace5f46a210753471de863
+  - enabled: 1
+    path: Assets/Scenes/Secredit.unity
+    guid: d8a9c21a9f00d495c8469ef01c5ecefc
   m_configObjects: {}
