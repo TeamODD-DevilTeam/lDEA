@@ -790,14 +790,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 293899911}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82c87e9f97f6c479086c20924ae12923, type: 3}
+  m_Script: {fileID: 11500000, guid: c334bca1b1a5140ca8fa7256e2415195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 3
   power: 24
-  playerLayer:
+  ballLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 640
+  ball: {fileID: 1559030810}
 --- !u!1 &300240074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1903,6 +1904,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1442318230364204101, guid: fd2c299b7641440b5a37ba9cf65571e7, type: 3}
+      propertyPath: m_ForceReceiveLayers.m_Bits
+      value: 887
+      objectReference: {fileID: 0}
     - target: {fileID: 7965317999987272342, guid: fd2c299b7641440b5a37ba9cf65571e7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.095
@@ -1947,7 +1952,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Desk (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2661649966464753254, guid: fd2c299b7641440b5a37ba9cf65571e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -14565,6 +14571,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1442318230364204101, guid: fd2c299b7641440b5a37ba9cf65571e7, type: 3}
+      propertyPath: m_ForceReceiveLayers.m_Bits
+      value: 887
+      objectReference: {fileID: 0}
     - target: {fileID: 7965317999987272342, guid: fd2c299b7641440b5a37ba9cf65571e7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.079
@@ -14609,7 +14619,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Desk (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2661649966464753254, guid: fd2c299b7641440b5a37ba9cf65571e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -22724,18 +22735,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3227454833729819164, guid: b94c17d6acea6604b82fc31dc24e1bbc, type: 3}
   m_PrefabInstance: {fileID: 1800259635}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1559030816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1559030810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3ef0e7dbea31441fb41d7121e43f25d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1562017999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24787,13 +24786,17 @@ PrefabInstance:
       propertyPath: playerB
       value: 
       objectReference: {fileID: 1001432505}
+    - target: {fileID: 1162923612715310569, guid: b94c17d6acea6604b82fc31dc24e1bbc, type: 3}
+      propertyPath: defaultLayer.m_Bits
+      value: 887
+      objectReference: {fileID: 0}
     - target: {fileID: 3227454833729819164, guid: b94c17d6acea6604b82fc31dc24e1bbc, type: 3}
       propertyPath: m_Name
       value: Circle
       objectReference: {fileID: 0}
     - target: {fileID: 3227454833729819164, guid: b94c17d6acea6604b82fc31dc24e1bbc, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7713573568008775130, guid: b94c17d6acea6604b82fc31dc24e1bbc, type: 3}
       propertyPath: m_LinearDrag
@@ -24802,10 +24805,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3227454833729819164, guid: b94c17d6acea6604b82fc31dc24e1bbc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1559030816}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b94c17d6acea6604b82fc31dc24e1bbc, type: 3}
 --- !u!1 &1851679323
 GameObject:
@@ -31732,7 +31732,7 @@ MonoBehaviour:
   power: 20
   playerLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 640
 --- !u!212 &2089464704
 SpriteRenderer:
   m_ObjectHideFlags: 0

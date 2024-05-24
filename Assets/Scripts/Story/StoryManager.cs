@@ -48,7 +48,7 @@ public class StoryManager : StoryParser {
     void PrintText() {
         // 현재 발화자를 감지합니다.
         nameObj.text = story[position].name;
-        if (story[position].image.IndexOf("b") != -1) {
+        if (story[position].image.Contains("b")) {
             alphaImage.color = SetColor(160, 160, 160, 255);
             betaImage.color = SetColor(255, 255, 255, 255);
             betaImage.sprite = GetSprite(story[position].image);

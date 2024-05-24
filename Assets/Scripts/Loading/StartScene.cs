@@ -11,7 +11,7 @@ public class StartScene : MonoBehaviour {
     [Tooltip("버튼 효과음을 재생할 컴포넌트입니다.")]
     [SerializeField] AudioSource audioSource;
     GameObject canvas;
-    bool isStage = false;
+    // bool isStage = false;
     float volume = 0;
 
     public void Quit() {
@@ -24,14 +24,16 @@ public class StartScene : MonoBehaviour {
         canvas = Instantiate(loadingCanvas);
         StartCoroutine(Loading(sceneName, 0.5f));
         DontDestroyOnLoad(canvas);
+        if (MusicPlayer.player.GetCurrentAudio() != MusicPlayer.player.GetDefaultAudio()) MusicPlayer.player.Play(MusicPlayer.player.GetDefaultAudio());
     }
 
     public void StartStage(string sceneName) {
         Load(sceneName);
-        volume = MusicPlayer.player.GetVolume();
+        MusicPlayer.player.Play(MusicPlayer.player.GetStageAudio());
+        // volume = MusicPlayer.player.GetVolume();
         // audioSource.Play();
-        isStage = true;
-        StartCoroutine(FadeOut());
+        // isStage = true;
+        // StartCoroutine(FadeOut());
     }
 
     IEnumerator Loading(string sceneName, float time) {
@@ -45,7 +47,7 @@ public class StartScene : MonoBehaviour {
                 DOTween.KillAll();
                 if (canvas.TryGetComponent(out Animator animator)) {
                     animator.SetTrigger("Finished");
-                    if (isStage) StartCoroutine(FadeIn());
+                    // if (isStage) StartCoroutine(FadeIn());
                 }
                 yield break;
             }

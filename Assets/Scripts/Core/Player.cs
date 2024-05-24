@@ -58,6 +58,8 @@ public class Player : MonoBehaviour
         if (isJumping && isGrounded) {
             platformDistance = Vector3.zero;
             rigid.velocity = new Vector2(rigid.velocity.x, jumpPower);
+            jumpEffectPlayer.clip = audioClip;
+            jumpEffectPlayer.Play();
             isGrounded = false; // 이 코드가 한 번만 실행되게끔 합니다.
         }
         rigid.velocity = new Vector2(rigid.velocity.x, rigid.velocity.y);
@@ -84,8 +86,6 @@ public class Player : MonoBehaviour
     public void OnJump(InputAction.CallbackContext value) {
         if (chatCanvas.gameObject.activeSelf) return;
         if (value.started) {
-            jumpEffectPlayer.clip = audioClip;
-            jumpEffectPlayer.Play();
             isJumping = true;
         } else if (value.canceled) isJumping = false;
     }
