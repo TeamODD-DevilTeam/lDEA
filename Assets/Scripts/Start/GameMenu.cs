@@ -4,25 +4,31 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameMenu : MonoBehaviour
 {
-    public GameObject canvasMenu;
+    public Animator canvasMenu;
+    [SerializeField] Canvas canvas;
+    [SerializeField] StartScene startScene;
 
     public string thisScene;
 
     public void goMenu()
     {
-        SceneManager.LoadScene("Menu");
+        startScene.Load("Menu");
     }
 
     public void Restart()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadSceneAsync(thisScene);
+        startScene.StartStage(thisScene);
     }
 
     public void Continue()
     {
-        canvasMenu.SetActive(false);
-        Time.timeScale = 1f;
+        canvasMenu.SetTrigger("out");
+        StartCoroutine(Inactive());
+    }
+
+    IEnumerator Inactive() {
+        yield return new WaitForSeconds(1.0f);
+        canvas.gameObject.SetActive(false);
     }
 
     public void End()

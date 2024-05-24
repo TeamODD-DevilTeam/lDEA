@@ -18,9 +18,13 @@ public class CameraMove : MonoBehaviour {
     };
     [Tooltip("카메라 이동을 사용할 것인지 지정합니다.")]
     [SerializeField] bool isMove = false;
+    [Tooltip("일시정지 메뉴입니다.")]
+    [SerializeField] Canvas pause;
     Vector3 velocity = Vector3.zero; // 카메라의 이동에 필요한 변수입니다.
     Vector3 pos; // 카메라의 위치를 지정할 변수입니다.
     void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape)) pause.gameObject.SetActive(true);
+        
         if (!isMove) return;
         pos = (alpha.position + beta.position) / 2; // 이동할 위치를 두 오브젝트의 중앙으로 지정합니다.
         pos.z = -10; // 카메라의 Z값을 -10에 고정합니다.
@@ -32,5 +36,6 @@ public class CameraMove : MonoBehaviour {
         else if (movableArea.max.y < pos.y) pos.y = movableArea.max.y;
 
         transform.position = Vector3.SmoothDamp(transform.position, pos, ref velocity, smoothTime); // 카메라를 부드럽게 지정한 시간동안 지정한 위치로 이동시킵니다.
+
     }
 }

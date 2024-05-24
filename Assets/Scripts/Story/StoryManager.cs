@@ -31,7 +31,7 @@ public class StoryManager : StoryParser {
 
     // Update is called once per frame
     void Update() {
-        if (Input.anyKeyDown) { // 만약 아무 키나 눌렀을 때
+        if (Input.anyKeyDown && !Input.GetKeyDown(KeyCode.Escape)) { // 만약 ESC를 제외한 아무 키나 눌렀을 때
             if (!isPrinting) { // 만약 출력 중이 아니라면
                 if (position < story.Count) PrintText(); // 다음 대사가 있다면 출력합니다.
                 else {
