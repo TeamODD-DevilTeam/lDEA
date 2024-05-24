@@ -14,6 +14,10 @@ public class StartScene : MonoBehaviour {
     bool isStage = false;
     float volume = 0;
 
+    public void Quit() {
+        Application.Quit();
+    }
+
     public void Load(string sceneName) {
         if (LoadingManager.instance != null)
             Destroy(LoadingManager.instance.gameObject);

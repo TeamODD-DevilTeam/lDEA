@@ -5,6 +5,7 @@ using UnityEngine;
 public class Torch : Block {
     [Tooltip("이 오브젝트의 애니메이터입니다.")]
     [SerializeField] Animator animator;
+    [SerializeField] Counter counter;
     
     bool isActive = false; // 횃불의 상태를 저장하는 변수입니다.
 
@@ -13,6 +14,7 @@ public class Torch : Block {
         if (!isActive) {
             animator.SetBool("isFire", true);
             isActive = true;
+            counter.IncreseCount();
         }
     }
 
