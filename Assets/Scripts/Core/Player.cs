@@ -93,7 +93,7 @@ public class Player : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision) {
         Vector3 pos = transform.position; // 플레이어의 위치를 가져옵니다.
         pos.x -= 0.5f; // Ray의 시작좌표를 설정합니다.
-        pos.y -= 0.5f;
+        pos.y -= 1.2f;
         for (int i = 0; i < 3; i++) { // 플레이어의 맨 앞, 중앙, 맨 뒤로 x좌표를 지정합니다.
             RaycastHit2D platformCheck = Physics2D.Raycast(new Vector2(pos.x + (0.5f * i), pos.y), Vector2.down, 0.2f, platformLayer);
             if (platformCheck.collider != null) {
@@ -108,7 +108,7 @@ public class Player : MonoBehaviour
     void OnCollisionExit2D(Collision2D collision) {
         Vector3 pos = transform.position; // 플레이어의 위치를 가져옵니다.
         pos.x -= 0.5f; // Ray의 시작좌표를 설정합니다.
-        pos.y -= 0.5f;
+        pos.y -= 1.2f;
         for (int i = 0; i < 3; i++) { // 플레이어의 맨 앞, 중앙, 맨 뒤로 x좌표를 지정합니다.
             RaycastHit2D platformCheck = Physics2D.Raycast(new Vector2(pos.x + (0.5f * i), pos.y), Vector2.down, 0.2f, platformLayer);
             if (platformCheck.collider != null) {

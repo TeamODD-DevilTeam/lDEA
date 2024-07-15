@@ -20,7 +20,7 @@ public class GroundCheck : MonoBehaviour {
     void CheckGround() {
         pos = transform.position; // 플레이어의 위치를 가져옵니다.
         pos.x -= 0.5f; // Ray의 시작좌표를 설정합니다.
-        pos.y -= 0.5f;
+        pos.y -= 1.2f;
         for (int i = 0; i < 3; i++) { // 플레이어의 맨 앞, 중앙, 맨 뒤로 x좌표를 지정합니다.
             // 현재 플레이어를 밟은 상태인지 확인합니다.
             RaycastHit2D playerCheck = Physics2D.Raycast(new Vector2(pos.x + (0.25f * i), pos.y), Vector2.down, 0.2f, playerLayer);
